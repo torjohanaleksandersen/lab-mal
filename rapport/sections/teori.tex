@@ -1,1 +1,136 @@
 \section{Teori}
+
+\subsection{Kretser}
+\subsubsection{Krets 1}
+
+\includegraphics[height=6cm]{Media/circuit1.png}
+
+\paragraph{Maskeanalyse.} Ved å sette $I_1$ i venstre loop med klokka og $I_2$ i høyre loop med klokka, setter vi opp følgende likninger ved bruk av KVL:
+\begin{equation}
+    -12V + R1(I_1) + R3(I_1 - I_2) = 0
+\end{equation}
+\begin{equation}
+    -12V - R3(I_1 - I_2) + R2(I_2) = 0
+\end{equation}
+Kjente verdier for $R_1$, $R_2$ og $R_3$ settes inn, og likningene løses for $I_1$ og $I_2$. Ligning 1 og 2 blir følgende:
+\[
+    3000\Omega(I_1) - 1500\Omega(I_2) = 12V
+\]
+\[
+    3000\Omega(I_2) - 1500\Omega(I_1) = 12V
+\]
+Løsning av likningene gir:
+\[
+    I_1 = I_2 = 8\mathrm{mA}
+\]
+\[
+    I_{R1} = I_{R2} = 8\mathrm{mA} \qquad I_{R3} = I_1 - I_2 = 0\mathrm{mA}
+\]
+Spenningen i punkt A, B og C blir følgende: 
+\[
+    V_A = V_1 = 12V
+\]
+\[
+    V_C = - V_2 = -12V
+\]
+Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B:
+\[
+    V_B = V_A - R1 \cdot I_{R1} = 12V - 1500\Omega \cdot 8mA = 0V
+\]
+
+\paragraph{Nodeanalyse.} \label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchoffs strømlov (KCL) for node B i kretsen. Ved å sette bunn som felles jording (0V) setter vi opp følgende likning:
+\[
+    \frac{V_A-V_B}{R1} = \frac{V_B-0V}{R3} + \frac{V_B-V_C}{R2}
+\]
+\begin{equation}
+    \frac{12V-V_B}{1500\Omega} = \frac{V_B}{1500\Omega} + \frac{V_B+12V}{3000\Omega}
+    \label{eq:KCLiB}
+\end{equation}
+\[
+    V_B = 0V
+\]
+Ved å sette $V_B$ inn i likningene for $I_{R1}$, $I_{R2}$ og $I_{R3}$ får vi:
+\[
+    I_{R1} = \frac{V_A - V_B}{R1} = \frac{12V - 0V}{1500\Omega} = 8mA
+\]
+\[
+    I_{R2} = \frac{V_B - V_C}{R2} = \frac{0V - (-12V)}{1500\Omega} = 8mA
+\]
+\[
+    I_{R3} = \frac{V_B - 0V}{R3} = \frac{0V - 0V}{1500\Omega} = 0A
+\]
+
+\paragraph{Node B. }Spenningen i punkt B er $0V$. Dette er forventet da motstandene $R1$ og $R2$ har samme verdi, og spenningskilden på $12V$ er lik for begge sider av kretsen. Punkt B vil derfor være i midten av de to spenningskildene hvor den ene siden ha like stor positiv spenning som den andre siden har negativ spenning. Flyten av strøm vil derfor gå mellom spenningskildene og ingenting vil rømme ned $R3$. \\ Forholdet mellom resistorene er nødvendig for at spenningen i node B skal være $0V$. Det må være like stor spenning fra begge sider av noden for forsikre at strømmen flyter gjennom $R1$ og $R2$ uten å rømme gjennom $R3$. For at spenning i node B skal være $0V$ må følgende forhold mellom resistorene være oppfylt:
+\[
+    R1 = R2, \qquad R3 \; \epsilon \; \mathbb{R^+}
+\]
+
+\paragraph{Toleranse i resistansene.} En feilmargin på $\pm$1\% i resistansene vil påvirke spenningen i node B. For å finne det maksimale og minimale spenningsnivået i node B må vi se på hvordan spenningen oppfører seg over resistansene. Resistansene vil ha størrelseområde
+\[
+\begin{aligned}
+    R_1 &\in [1485\,\Omega,\; 1515\,\Omega] \\
+    R_2 &\in [1485\,\Omega,\; 1515\,\Omega] \\
+    R_3 &\in [1485\,\Omega,\; 1515\,\Omega]
+\end{aligned}
+\]
+
+Tilfelle med maksimum verdi i $V_B$ oppstår når spenningsfallet er minst over $R1$ og størst over $R2$. Dette er fordi spenningen over $R1$ er positiv i forhold til node B, mens spenningen over $R2$ er negativ i forhold til node B. Det vi også ønsker er å isolere noden mest mulig fra referansejording i bunn. Dermed konkluderer vi følgende:
+\[
+\begin{aligned}
+    V_{B,\text{max}} &: \quad 
+        R_1 = R_{1,\text{min}}, \;
+        R_2 = R_{2,\text{max}}, \;
+        R_3 = R_{3,\text{max}} \\[4pt]
+    V_{B,\text{min}} &: \quad 
+        R_1 = R_{1,\text{max}}, \;
+        R_2 = R_{2,\text{min}}, \;
+        R_3 = R_{3,\text{min}}
+\end{aligned}
+\]
+Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som kan løses for $V_{Bmax}$ og $V_{Bmin}$:
+\[
+    \frac{V_A-V_{Bmax}}{1485\Omega} = \frac{V_{Bmax}-0V}{1515\Omega} + \frac{V_{Bmax}+12V}{1500\Omega}
+\]
+\[
+    \frac{V_A-V_{Bmin}}{1515\Omega} = \frac{V_{Bmin}-0V}{1485\Omega} + \frac{V_{Bmin}+12V}{1500\Omega}
+\]
+\[
+    V_{Bmax}=0.80\mathrm{mV}, \qquad V_{Bmin}=-0.80\mathrm{mV}
+\]
+
+\subsection{Krets 2}
+\subsubsection{Maskeanalyse.} Vi definerer strømmene i de tre loopene som $I_1$, $I_2$ og $I_3$, alle med klokka. Ved bruk av KVL setter vi opp følgende likninger:
+
+
+\begin{align}
+    -12V + 1500\Omega (I_1 - I_3) + 1500\Omega (I_1 - I_2) &= 0 \label{eq:loop1} \\
+    3900\Omega \cdot I_3 - 1500\Omega (I_2 - I_3) - 1500\Omega (I_1 - I_3) &= 0 \label{eq:loop2} \\
+    -12V - 1500\Omega (I_1 - I_2) + 1500\Omega (I_2 - I_3) &= 0 \label{eq:loop3}
+\end{align}
+
+Løsning av likningene \ref{eq:loop1}, \ref{eq:loop2} og \ref{eq:loop3} gir:
+
+\[
+I_1 = 14.15~\text{mA}, \quad
+I_2 = 14.15~\text{mA}, \quad
+I_3 = 6.15~\text{mA}
+\]
+
+Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}$ og $I_{R5}$ som følger:
+\[
+I_{R1} = I_1 - I_3 = 8.0~\text{mA}
+\]
+\[
+I_{R2} = I_2 - I_3 = 8.0~\text{mA}
+\]
+\[
+I_{R3} = I_1 - I_2 = 0~\text{A}
+\]
+\[
+I_{R4} = I_3 = 6.15~\text{mA}
+\]
+
+\paragraph{Spenningene i nodene A, B og C.} Spenningene kan uttrykkes på samme måte som i ligning \ref{eq:KCLiB} under \ref{paragraph:nodeanalyse}. Ettersom at grenen fra node A til C vil ikke utgjøre en forskjell på $V_A$ og $V_C$ sammenlignet med krets 1, vil spenningene i nodene A, B og C være de samme som i krets 1:
+\[
+V_A = 12V, \quad V_B = 0V, \quad V_C = -12V
+\]
