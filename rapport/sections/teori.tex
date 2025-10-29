@@ -25,10 +25,26 @@ der $I$ er strømmen gjennom lederen, målt i ampere $[A]$, $V$ er potensialfors
 
 Figuren under viser en enkel krets der alle disse størrelsene inngår.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[height=4cm]{Media/OhmsLaw.svg.png}
+\begin{circuitikz}[american voltages]
+    \node[circle, draw=black, fill=none, thick, inner sep=2pt] (A) at (-1,2) {};
+    \node[circle, fill=black, inner sep=1.2pt] (B) at (1,2) {};
+    \node[circle, fill=black, inner sep=1.2pt] (C) at (1,-2) {};
+    \node[circle, draw=black, fill=none, thick, inner sep=2pt] (D) at (-1,-2) {};
+
+    \node at (-1, 1.6) {$+$};
+    \node at (-1, -1.6) {$-$};
+    \node at (-1, 0) {$V$};
+
+    \draw (A) to[short, -, i^=$I$] (B);
+    \draw (B) to[R=$R$] (C);
+    \draw (C) to[short, -] (D);
+    
+
+\end{circuitikz}
 \caption{Illustrasjon av Ohms lov i en enkel krets.}
+\label{fig:ohmsLov}
 \end{figure}
 
 \paragraph{Anvendelse av Ohms lov i kretsanalyse}
@@ -53,10 +69,25 @@ Denne loven beksriver prinsippet om konservering av elektrisk ladning i et forgr
 \noindent
 Figuren under viser et enkelt tilfelle av et forgreningspunkt. Her vil $i_2+i_3=i_1+i_4$.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[height=4cm]{Media/KCL.png}
-\caption{Illustrasjon av Ohms lov i en enkel krets.}
+\begin{circuitikz}[american voltages]
+    \node[circle, fill=black, inner sep=1.2pt] (A) at (0, 0) {};
+    \node[circle, fill=black, inner sep=1.2pt] (B) at (0, 3) {};
+    \node[circle, fill=black, inner sep=1.2pt] (C) at (3, 0) {};
+    \node[circle, fill=black, inner sep=1.2pt] (D) at (0, -3) {};
+    \node[circle, fill=black, inner sep=1.2pt] (E) at (-3, 0) {};
+
+
+    \draw (A) to[R=$R_1$, i^=$i_1$] (B);
+    \draw (C) to[short, -, i^=$i_2$] (A);
+    \draw (D) to[R=$R_3$, i^=$i_3$] (A);
+    \draw (A) to[short, -, i^=$i_4$] (E);
+    
+
+\end{circuitikz}
+\caption{Illustrasjon av et forgreningspunkt.}
+\label{fig:KCL}
 \end{figure}
 
 \paragraph{Kirchoffs spenningslov.}
@@ -69,10 +100,30 @@ Denne loven beskriver konservering av elektrisk energi og sier at: "Summen av al
 \noindent
 I kretser vil dette i praksis bety at positive potensialforskjeller over batterier må veges opp av negative potensialforskjeller over motstander eller andre komponenter. Det betyr derfor at det må være motstand i sløyfen for at batteriene skal kunne gi positive potensialforskjeller. Figuren under viser et enkelt tilfelle av en sløyfe der $V_1 + V_2 + V_3 = V_4$.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[height=3cm]{Media/KVL.png}
-\caption{Illustrasjon av Ohms lov i en enkel krets.}
+\begin{circuitikz}[american voltages]
+    \node[circle, fill=black, inner sep=1.2pt] (A) at (-3, 2) {};
+    \node[circle, fill=black, inner sep=1.2pt] (B) at (3, 2) {};
+    \node[circle, fill=black, inner sep=1.2pt] (C) at (3, -2) {};
+    \node[circle, fill=black, inner sep=1.2pt] (D) at (-3, -2) {};
+
+
+    \draw (A) to[R=$R_1$] (B);
+    \draw (B) to[R=$R_2$] (C);
+    \draw (C) to[R=$R_3$] (D);
+
+    \node at (0, 1.4) {$V_1$};
+    \node at (2.3, 0) {$V_2$};
+    \node at (0, -1.4) {$V_3$};
+
+    \draw (A) to[V=$V_4$] (D);
+
+    
+
+\end{circuitikz}
+\caption{Illustrasjon av en sløyfe.}
+\label{fig:KVL}
 \end{figure}
 
 
@@ -313,7 +364,7 @@ Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningsp
 
 
 \subsubsection{Lineære potensiometere}
-
+Et potensiometer består av tre terminalermotstander i tillegg til en roterende kontaktområde som former en justerbar spenningsdeler og en justerbar motstand. 
 
 \subsection{Målesikkerhet og toleranse}
 
@@ -328,7 +379,34 @@ Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningsp
 \subsection{Kretser}
 \subsubsection{Krets 1}
 
-\includegraphics[height=6cm]{Media/circuit1.png}
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[american voltages]
+
+    % Diamond corners
+    \node[circle, fill=black, inner sep = 1.2pt, label=above left:$A$] (A) at (-5, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt, label=above:$B$] (B) at (0, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt, label=above right:$C$] (C) at ( 5, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (F) at (-5, -2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (D) at (5, -2) {};
+
+    \draw (A) to[V, a^=$V_1$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (F);
+    \draw (D) to[V, a^=$V_2$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (C);
+
+    \draw (A) to[R, a^=$R_1$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R1}$] (B);
+    \draw (B) to[R, a^=$R_2$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R2}$] (C);
+    \draw (B) to[R, a^=$R_3$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R3}$] (E);
+
+    \draw (D) to[short,*-*] (E);
+    \draw (E) to[short,*-*] (F);
+
+    \draw (0, -2) node[ground]{}; 
+
+\end{circuitikz}
+\caption{Krets 1}
+\label{fig:krets1}
+\end{figure}
 
 \paragraph{Maskeanalyse.} Ved å sette $I_1$ i venstre loop med klokka og $I_2$ i høyre loop med klokka, setter vi opp følgende likninger ved bruk av KVL:
 \begin{equation}
@@ -424,6 +502,48 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
 \]
 
 \subsection{Krets 2}
+
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[american voltages]
+
+    % Diamond corners
+    \node[circle, fill=black, inner sep = 1.2pt, label=above left:$A$] (A) at (-5, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt, label=above:$B$] (B) at (0, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt, label=above right:$C$] (C) at ( 5, 2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (F) at (-5, -2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (D) at (5, -2) {};
+
+    \node[circle, fill=black, inner sep = 1.2pt] (TL) at (-5, 4) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (TR) at (5, 4) {};
+
+
+    \draw (A) to[V, a^=$V_1$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (F);
+    \draw (D) to[V, a^=$V_2$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (C);
+
+    \draw (A) to[R, a^=$R_1$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R1}$] (B);
+    \draw (B) to[R, a^=$R_2$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R2}$] (C);
+    \draw (B) to[R, a^=$R_3$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R3}$] (E);
+
+    \draw (D) to[short,*-*] (E);
+    \draw (E) to[short,*-*] (F);
+
+    \draw (TL) to[R, a^=$R_4$, l_=$3.9\,\text{k}\Omega$, i>^=$I_{R4}$] (TR);
+    \draw (A) to[short,*-*] (TL);
+    \draw (TR) to[short,*-*] (C);
+
+    \draw (0, -2) node[ground]{}; 
+
+\end{circuitikz}
+\caption{Krets 1}
+\label{fig:krets2}
+\end{figure}
+
+
+
+
+
 \subsubsection{Maskeanalyse.} Vi definerer strømmene i de tre loopene som $I_1$, $I_2$ og $I_3$, alle med klokka. Ved bruk av KVL setter vi opp følgende likninger:
 
 
@@ -461,6 +581,56 @@ V_A = 12V, \quad V_B = 0V, \quad V_C = -12V
 \]
 
 \subsection{Krets 3}
+
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[american voltages]
+
+    \node[circle, fill=black, inner sep = 1.2pt] (A) at (-6,  -2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (B) at (-6,  2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (C) at (-5,  2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (D) at (-5,  3) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (E) at (-5,  1) {};
+
+    \node[circle, fill=black, inner sep = 1.2pt, label=above:$1$] (F) at (0,  3) {};
+    \node[circle, fill=black, inner sep = 1.2pt, label=below:$2$] (G) at (0,  1) {};
+
+    \node[circle, fill=black, inner sep = 1.2pt] (H) at (5,  2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (I) at (5,  3) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (J) at (5,  1) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (K) at (6,  2) {};
+    \node[circle, fill=black, inner sep = 1.2pt] (L) at (6,  -2) {};
+
+    \draw (B) to[V, a^=$V_{in}$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (A);
+    \draw (K) to[short,*-*] (L);
+    \draw (F) to[voltmeter=$V_{out}$] (G);
+
+    \draw (A) node[ground]{};
+    \draw (L) node[ground]{};
+    \draw (B) to[short,*-*] (C);
+    \draw (H) to[short,*-*] (K);
+
+    \draw (C) to[short,*-*] (D);
+    \draw (C) to[short,*-*] (E);
+
+    \draw (H) to[short,*-*] (I);
+    \draw (H) to[short,*-*] (J);
+
+    \draw (D) to[R=$R_5$] (F);
+    \draw (E) to[R=$R_7$] (G);
+
+    \draw (F) to[R=$R_6$] (I);
+    \draw (G) to[R=$R_8$] (J);
+
+
+
+\end{circuitikz}
+\caption{Wheatstone-bro}
+\label{fig:krets3}
+\end{figure}
+
+
+
 Ligningen for spenningen i Wheatstone-broen er gitt som:
 \[
 V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right)
