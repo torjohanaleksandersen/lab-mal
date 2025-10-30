@@ -333,9 +333,11 @@ Ligning \ref{eq:l1_wheatstone} deles på \ref{eq:l2_wheatstone} og vi får:
 \[
 R_4 = \frac{R_3 \cdot I_2 \cdot R_2 \cdot I_1}{I_2 \cdot R_1 \cdot I_1}
 \]
-\[
-\frac{R_4}{R_2} = \frac{R_3}{R_1} \qquad \rightarrow \qquad \frac{R_1}{R_3} = \frac{R_2}{R_4}
-\]
+\begin{equation}
+    \frac{R_4}{R_2} = \frac{R_3}{R_1} \qquad \rightarrow \qquad \frac{R_1}{R_3} = \frac{R_2}{R_4}
+    \label{eq:balansertWheatstoneBro}
+\end{equation}
+
 
 \noindent
 \paragraph{Utledning av $V_{out}$ i balansert bro.}
@@ -361,17 +363,88 @@ Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningsp
 
 
 \subsubsection{Spenningsdeling og balanserte kretser}
+\label{subsec:spenningsdeling}
 
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[american voltages]
+    \node [circle, fill=black, inner sep = 1.2pt, label=above:$V_{in}$] (A) at (-5, 0) {};
+    \node [circle, fill=black, inner sep = 1.2pt] (B) at (0, 0) {};
+    \node [circle, fill=black, inner sep = 1.2pt] (C) at (5, 0) {};
+
+    \node [circle, fill=black, inner sep = 1.2pt, label=right:$V_{node}$] (D) at (0, -2) {};
+
+    \draw (A) to[R=$R_L$] (B);
+    \draw (B) to[R=$R_R$] (C);
+
+    \draw (B) to[short, -] (D);
+    \node[ground] (GND) at (C) {};
+
+\end{circuitikz}
+\caption{Spenningsdeler krets}
+\label{fig:spenningsdeler}
+\end{figure}
+
+En ideell spenningsdeler med to seriemotstander $R_\mathrm{topp}$ og $R_\mathrm{bunn}$ tilført $V_{in}$ gir noden mellom dem spenningen
+\[
+V_\mathrm{node} = V_{in}\,\frac{R_R}{R_L+R_L}.
+\]
+Denne formelen brukes gjentatte ganger i kretsanalyse og er grunnlaget for utledningen av Wheatstone-broen. En Wheatstone-bro er \emph{balansert} når (ligning \ref{eq:balansertWheatstoneBro})
+\[
+\frac{R_1}{R_3}=\frac{R_2}{R_4},
+\]
+som er ekvivalent med at nodene har samme potensial, altså $V_{out}=0$. For ubalanse fås den kjente uttrykksformen (ligning \ref{eq:spenning_i_wheatstone})
+\[
+V_{out}=V_{in}\!\left(\frac{R_3}{R_1+R_3}-\frac{R_4}{R_2+R_4}\right).
+\]
+\paragraph{Følsomhet.}
+Små endringer i én gren gir størst utslag når broen er nær balanse (bratteste helning rundt $V_{out}=0$), derfor er Wheatstone-broen velegnet til presis måling av små motstandsvariasjoner.
 
 \subsubsection{Lineære potensiometere}
-Et potensiometer består av tre terminalermotstander i tillegg til en roterende kontaktområde som former en justerbar spenningsdeler og en justerbar motstand. 
+\label{subsec:potmeter}
 
-\subsection{Målesikkerhet og toleranse}
+Et lineært potensiometer har total motstand $R_P$ og en sleider (wiper) som deler motstanden i to: 
+\[
+R_\uparrow = \alpha R_P,\qquad R_\downarrow=(1-\alpha)R_P,\qquad \alpha\in[0,1].
+\]
+Potensiometeret kan brukes på to måter:
+\begin{enumerate}
+  \item \textbf{Som spenningsdeler} (tre terminaler): noden ved sleideren får 
+  \(
+  V_\mathrm{wiper}=V_{in}\,\frac{R_\downarrow}{R_\uparrow+R_\downarrow}
+  =V_{in}\,(1-\alpha).
+  \)
+  \item \textbf{Som variabel motstand} (rheostat, to terminaler): effektiv motstand er en funksjon av $\alpha$, typisk
+  \(
+  R(\alpha)=\alpha R_P
+  \)
+  (eller $(1-\alpha)R_P$ avhengig av hvilke terminaler som brukes).
+\end{enumerate}
 
+I denne rapporten modelleres potensiometere i Wheatstone-broen som \emph{variable motstander} $x$ i stedet for faste $R$ (rheostat-bruk). Setter vi for eksempel
+\[
+R_1=R,\quad R_2=x,\quad R_3=R,\quad R_4=x,
+\]
+får vi fra broformelen
+\[
+V_{out}(x)=V_{in}\!\left(\frac{R_3}{R_1+R_3}-\frac{R_4}{R_2+R_4}\right)
+=V_{in}\!\left(\frac{R}{R+R}-\frac{x}{x+R}\right)
+=V_{in}\,\frac{R-x}{R+x}.
+\]
+Skriver vi om med motsatt fortegn får vi varianten som brukes i plottet:
+\[
+V_{out}(x)=V_{in}\,\frac{x-R}{x+R}.
+\]
 
+\paragraph{Relevans for temperaturmåling.}
+En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der \emph{temperatur} styrer $x$. Når én gren er referanse og den andre er sensor, gir en liten endring i $x(T)$ en målbar $\Delta V_{out}$ rundt balansepunktet.
 
-
-
+\paragraph{Praktiske hensyn.}
+\begin{itemize}
+  \item \textbf{Linjæritet}: lineær (B-taper) antas; logaritmisk (A-taper) er uegnet her.
+  \item \textbf{Endestopp og wiper-motstand}: gir små, men merkbare feil nær $\alpha\approx0$ og $1$.
+  \item \textbf{Lasting}: målte $V_{out}$ forutsetter høy inngangsimpedans på voltmeter/DAQ.
+\end{itemize}
 
 
 
@@ -411,11 +484,13 @@ Et potensiometer består av tre terminalermotstander i tillegg til en roterende 
 \paragraph{Maskeanalyse.} Ved å sette $I_1$ i venstre loop med klokka og $I_2$ i høyre loop med klokka, setter vi opp følgende likninger ved bruk av KVL:
 \begin{equation}
     -12V + R1(I_1) + R3(I_1 - I_2) = 0
+    \label{eq:maskeKrets1l1}
 \end{equation}
 \begin{equation}
     -12V - R3(I_1 - I_2) + R2(I_2) = 0
+    \label{eq:maskeKrets1l2}
 \end{equation}
-Kjente verdier for $R_1$, $R_2$ og $R_3$ settes inn, og likningene løses for $I_1$ og $I_2$. Ligning 1 og 2 blir følgende:
+Kjente verdier for $R_1$, $R_2$ og $R_3$ settes inn, og likningene løses for $I_1$ og $I_2$. Ligning \ref{eq:maskeKrets1l1} og \ref{eq:maskeKrets1l2} blir følgende:
 \[
     3000\Omega(I_1) - 1500\Omega(I_2) = 12V
 \]
@@ -429,14 +504,13 @@ Løsning av likningene gir:
 \[
     I_{R1} = I_{R2} = 8\mathrm{mA} \qquad I_{R3} = I_1 - I_2 = 0\mathrm{mA}
 \]
-Spenningen i punkt A, B og C blir følgende: 
+Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B. Derfor blir spenningen i punkt A, B og C blir følgende: 
 \[
     V_A = V_1 = 12V
 \]
 \[
     V_C = - V_2 = -12V
 \]
-Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B:
 \[
     V_B = V_A - R1 \cdot I_{R1} = 12V - 1500\Omega \cdot 8mA = 0V
 \]
@@ -632,9 +706,10 @@ V_A = 12V, \quad V_B = 0V, \quad V_C = -12V
 
 
 Ligningen for spenningen i Wheatstone-broen er gitt som:
-\[
-V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right)
-\]
+\begin{equation}
+    V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right)
+    \label{eq:wheatstoneKrets3}
+\end{equation}
 Der $V_{out}$ er spenning mellom node 1 og 2 i broen. Når broen er balansert, vil $V_{out} = 0V$. Dette skjer når følgende forhold er oppfylt:
 \[
 \frac{R_8}{R_7 + R_8} = \frac{R_6}{R_5 + R_6}
@@ -642,7 +717,7 @@ Der $V_{out}$ er spenning mellom node 1 og 2 i broen. Når broen er balansert, v
 \[
 R_5 = R_6 = R_7 = R_8
 \]
-\paragraph{Lineære potensiometere.} Vi undersøker hvordan temperatur kan måles ved hjelp av et resistivt måleprinsipp basert på temperaturavhengige motstander (PTC-motstander). Vi kan simulere slike motstandere med bruk av lineære potensiometere. En lineær potensiometer har en motstandsverdi som er proporsjonal med hvor mye av potensiometeret som er vridd. Ved å sette opp en Wheatstone-bro med to lineære potensiometere, kan vi simulere en temperaturmåling. Når den ene potensiometeren representerer en referansetemperatur og den andre representerer den målte temperaturen, vil broen være balansert ved referansetemperaturen. Når temperaturen endres, vil motstandsverdien i den målte potensiometeren endres, noe som fører til en ubalanse i broen og dermed en målbar spenning $V_{out}$. \\ For å oppnå høyest mulig potensialforskjell mellom node 1 og 2 gjennom måling av $V_{out}$, bør potensiometerne plasseres slik at REF LIGNING kan få høyest mulig verdi. Plaserer vi begge potensiometerne før målenodene blir det fortsatt balanse. Derfor må de plasseres diagonalt i broen for å oppnå størst $|V_{out}|$. Vi bytter derfor ut $R_5$ og $R_8$ med potensiometere. Ligningen kan skrives følgende:
+\paragraph{Lineære potensiometere.} Vi undersøker hvordan temperatur kan måles ved hjelp av et resistivt måleprinsipp basert på temperaturavhengige motstander (PTC-motstander). Vi kan simulere slike motstandere med bruk av lineære potensiometere. En lineær potensiometer har en motstandsverdi som er proporsjonal med hvor mye av potensiometeret som er vridd. Ved å sette opp en Wheatstone-bro med to lineære potensiometere, kan vi simulere en temperaturmåling. Når den ene potensiometeren representerer en referansetemperatur og den andre representerer den målte temperaturen, vil broen være balansert ved referansetemperaturen. Når temperaturen endres, vil motstandsverdien i den målte potensiometeren endres, noe som fører til en ubalanse i broen og dermed en målbar spenning $V_{out}$. \\ For å oppnå høyest mulig potensialforskjell mellom node 1 og 2 gjennom måling av $V_{out}$, bør potensiometerne plasseres slik at ligning \ref{eq:wheatstoneKrets3} kan få høyest mulig verdi. Plaserer vi begge potensiometerne før målenodene blir det fortsatt balanse. Derfor må de plasseres diagonalt i broen for å oppnå størst $|V_{out}|$. Vi bytter derfor ut $R_5$ og $R_8$ med potensiometere. Ligningen kan skrives følgende:
 \[
 V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right), \qquad R_5 = R_6 = R_7 = R_8
 \]
@@ -652,8 +727,39 @@ V_{out}(x_{pot}) = V_{in} \cdot  \left(\frac{x_{pot}}{R + x_{pot}} - \frac{R}{x_
 \[
 V_{out}(x_{pot}) = V_{in} \cdot  \left(\frac{x_{pot} - R}{R + x_{pot}} \right)
 \]
-For å finne høyest mulig potensialforskjell mellom node 1 og 2 kan vi analysere grafen til $V_{out}(x_{pot})$. \\ Figuren kommer. \\ Figur x viser hvordan i intervallet $x_{pot} \in [0\Omega, 10k\Omega]$ vil $V_{out}$ variere. Vi ser at maksimum og minimum spenning oppstår ved henholdsvis $x_{pot} = \infty$ og $x_{pot} = 0\Omega$. Dette betyr for oss i praksis at vi vil oppleve størst $|V_{out}|$ når potensiometeret er helt vridd i en retning. I vårt tilfelle betyr dette at vi vil oppleve størst potensialforskjell når potensiometeret representerer høyest mulig temperaturforskjell fra referansetemperaturen.
+\noindent
+$V_{out}$ er nå en funksjon for $x_{pot}$ og vi kan plotte den.
 
 
 
-\subsection{Forventede teoretiske resultater}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel=$x_{pot}$, 
+    ylabel=$V_{out}(x_{pot})$,
+    height=7cm,
+    width=15cm,
+    grid=both, 
+    thick, 
+    domain=0:150000, 
+    samples=100, 
+    ymin=-14, ymax = 10,
+    axis lines=middle,           % move axes to the center (nice visual)
+    axis line style={->},        % add arrows
+    enlargelimits,               % small margin
+  ]
+    \addplot[black] {12 * ((x - 33000) / (x + 33000))};
+  \end{axis}
+\end{tikzpicture}
+\caption{Graf}
+\label{fig:wheatstone-graph}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Grafens ekstremalpunkter i intervallet $x_{pot} \in [0, 100\text{k}\Omega]$ vil fortelle oss hva vi kan måle $V_{out}$ sin laveste og høyeste verdi vil være. Siden grafen oppfører seg som $V_{out}(t) < V_{out}(t + \Delta t)$ i intervallet $[0, 10^5]$ er den strengt økende og vi vil garantert finne dens laveste verdi i $x_{pot} = 0$ og høyest verdi i $x_{pot} = 10^5$. Dermed løser vi for det som:
+\begin{align}
+V_{out}(0) &= -12V \\
+V_{out}(10^5) &= 6.05V
+\end{align}
