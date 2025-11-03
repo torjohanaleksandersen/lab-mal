@@ -371,7 +371,7 @@ Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningsp
 
 En ideell spenningsdeler med to seriemotstander $R_\mathrm{topp}$ og $R_\mathrm{bunn}$ tilført $V_{in}$ gir noden mellom dem spenningen
 \[
-V_\mathrm{node} = V_{in}\,\frac{R_R}{R_L+R_R}.
+V_\mathrm{node} = V_{in}\frac{R_R}{R_L+R_R}.
 \]
 Denne formelen brukes gjentatte ganger i kretsanalyse og er grunnlaget for utledningen av Wheatstone-broen. En Wheatstone-bro er \emph{balansert} når (ligning \ref{eq:balansertWheatstoneBro})
 \[
@@ -395,8 +395,8 @@ Potensiometret kan brukes på to måter:
 \begin{enumerate}
   \item \textbf{Som spenningsdeler} (tre terminaler): noden ved sleideren får 
   \(
-  V_\mathrm{wiper}=V_{in}\,\frac{R_\downarrow}{R_\uparrow+R_\downarrow}
-  =V_{in}\,(1-\alpha).
+  V_\mathrm{wiper}=V_{in}\frac{R_\downarrow}{R_\uparrow+R_\downarrow}
+  =V_{in}(1-\alpha).
   \)
   \item \textbf{Som variabel motstand} (rheostat, to terminaler): effektiv motstand er en funksjon av $\alpha$, typisk
   \(
@@ -413,11 +413,11 @@ får vi fra broformelen
 \[
 V_{out}(x)=V_{in}\!\left(\frac{R_3}{R_1+R_3}-\frac{R_4}{R_2+R_4}\right)
 =V_{in}\!\left(\frac{R}{R+R}-\frac{x}{x+R}\right)
-=V_{in}\,\frac{R-x}{R+x}.
+=V_{in}\frac{R-x}{R+x}.
 \]
 Skriver vi om med motsatt fortegn får vi varianten som brukes i plottet:
 \[
-V_{out}(x)=V_{in}\,\frac{x-R}{x+R}.
+V_{out}(x)=V_{in}\frac{x-R}{x+R}.
 \]
 
 \paragraph{Relevans for temperaturmåling.}
@@ -448,12 +448,12 @@ En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der 
     \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
     \node[circle, fill=black, inner sep = 1.2pt] (D) at (5, -2) {};
 
-    \draw (A) to[V, a^=$V_1$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (F);
-    \draw (D) to[V, a^=$V_2$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (C);
+    \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$, i>^=$I_{R1}$] (F);
+    \draw (D) to[V, a^=$V_2$, l_=$12\text{V}$, i>^=$I_{R1}$] (C);
 
-    \draw (A) to[R, a^=$R_1$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R1}$] (B);
-    \draw (B) to[R, a^=$R_2$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R2}$] (C);
-    \draw (B) to[R, a^=$R_3$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R3}$] (E);
+    \draw (A) to[R, a^=$R_1$, l_=$1.5\text{k}\Omega$, i>^=$I_{R1}$] (B);
+    \draw (B) to[R, a^=$R_2$, l_=$1.5\text{k}\Omega$, i>^=$I_{R2}$] (C);
+    \draw (B) to[R, a^=$R_3$, l_=$1.5\text{k}\Omega$, i>^=$I_{R3}$] (E);
 
     \draw (D) to[short,*-*] (E);
     \draw (E) to[short,*-*] (F);
@@ -476,27 +476,27 @@ En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der 
 \end{equation}
 Kjente verdier for $R_1$, $R_2$ og $R_3$ settes inn, og likningene løses for $I_1$ og $I_2$. Ligning \ref{eq:maskeKrets1l1} og \ref{eq:maskeKrets1l2} blir følgende:
 \[
-    3000\Omega(I_1) - 1500\Omega(I_2) = 12\text{ V}
+    3000\Omega(I_1) - 1500\Omega(I_2) = 12\text{V}
 \]
 \[
-    3000\Omega(I_2) - 1500\Omega(I_1) = 12\text{ V}
+    3000\Omega(I_2) - 1500\Omega(I_1) = 12\text{V}
 \]
 Løsning av likningene gir:
 \[
-    I_1 = I_2 = 8\text{ mA}
+    I_1 = I_2 = 8\text{mA}
 \]
 \[
-    I_{R1} = I_{R2} = 8\text{ mA} \qquad I_{R3} = I_1 - I_2 = 0\text{ mA}
+    I_{R1} = I_{R2} = 8\text{mA} \qquad I_{R3} = I_1 - I_2 = 0\text{mA}
 \]
 Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B. Derfor blir spenningen i punkt A, B og C blir følgende: 
 \[
-    V_A = V_1 = 12\text{ V}
+    V_A = V_1 = 12\text{V}
 \]
 \[
-    V_C = - V_2 = -12\text{ V}
+    V_C = - V_2 = -12\text{V}
 \]
 \[
-    V_B = V_A - R_1 \cdot I_{R1} = 12\text{V} - 1500\Omega \cdot 8\text{mA} = 0\text{ V}
+    V_B = V_A - R_1 \cdot I_{R1} = 12\text{V} - 1500\Omega \cdot 8\text{mA} = 0\text{V}
 \]
 
 \paragraph{Nodeanalyse.} \label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchhoffs strømlov (KCL) for node B i kretsen. Ved å sette bunn som felles jording ($0\text{V}$) setter vi opp følgende likning:
@@ -508,13 +508,13 @@ Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B. Derfor blir 
     \label{eq:KCLiB}
 \end{equation}
 \[
-    V_B = 0\text{ V}
+    V_B = 0\text{V}
 \]
 Ved å sette $V_B$ inn i likningene for $I_{R1}$, $I_{R2}$ og $I_{R3}$ får vi:
 \begin{align}
-    I_{R1} &= \frac{V_A - V_B}{R_1} = \frac{12\text{V} - 0\text{V}}{1500\Omega} = 8\text{ mA} \\
-    I_{R2} &= \frac{V_B - V_C}{R_2} = \frac{0\text{V} - (-12\text{V})}{1500\Omega} = 8\text{ mA} \\
-    I_{R3} &= \frac{V_B - 0\text{V}}{R_3} = \frac{0\text{V} - 0\text{V}}{1500\Omega} = 0\text{ A} \\
+    I_{R1} &= \frac{V_A - V_B}{R_1} = \frac{12\text{V} - 0\text{V}}{1500\Omega} = 8\text{mA} \\
+    I_{R2} &= \frac{V_B - V_C}{R_2} = \frac{0\text{V} - (-12\text{V})}{1500\Omega} = 8\text{mA} \\
+    I_{R3} &= \frac{V_B - 0\text{V}}{R_3} = \frac{0\text{V} - 0\text{V}}{1500\Omega} = 0\text{A} \\
 \end{align}
 
 \paragraph{Node B. }Spenningen i punkt B er $0\text{V}$. Dette er forventet da motstandene $R_1$ og $R_2$ har samme verdi, og spenningskilden på $12\text{V}$ er lik for begge sider av kretsen. Punkt B vil derfor være i midten av de to spenningskildene hvor den ene siden ha like stor positiv spenning som den andre siden har negativ spenning. Flyten av strøm vil derfor gå mellom spenningskildene og ingenting vil gå gjennom $R_3$. \\ Forholdet mellom resistorene er nødvendig for at spenningen i node B skal være $0\text{V}$. Det må være like stor spenning fra begge sider av noden for forsikre at strømmen flyter gjennom $R_1$ og $R_2$ uten å rømme gjennom $R_3$. For at spenning i node B skal være $0\text{V}$ må følgende forhold mellom resistorene være oppfylt:
@@ -525,9 +525,9 @@ Ved å sette $V_B$ inn i likningene for $I_{R1}$, $I_{R2}$ og $I_{R3}$ får vi:
 \paragraph{Toleranse i resistansene.} En feilmargin på $\pm$1\% i resistansene vil påvirke spenningen i node B. For å finne det maksimale og minimale spenningsnivået i node B må vi se på hvordan spenningen oppfører seg over resistansene. Resistansene vil ha størrelseområde
 \[
 \begin{aligned}
-    R_1 &\in [1485\,\Omega,\; 1515\,\Omega] \\
-    R_2 &\in [1485\,\Omega,\; 1515\,\Omega] \\
-    R_3 &\in [1485\,\Omega,\; 1515\,\Omega]
+    R_1 &\in [1485\Omega,\; 1515\Omega] \\
+    R_2 &\in [1485\Omega,\; 1515\Omega] \\
+    R_3 &\in [1485\Omega,\; 1515\Omega]
 \end{aligned}
 \]
 
@@ -551,9 +551,10 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
 \[
     \frac{V_A-V_{Bmin}}{1515\Omega} = \frac{V_{Bmin}-0\text{V}}{1485\Omega} + \frac{V_{Bmin}+12\text{V}}{1500\Omega}
 \]
-\[
-    V_{Bmax}=0.80\text{ mV}, \qquad V_{Bmin}=-0.80\text{ mV}
-\]
+\begin{equation}
+    V_{Bmax}=0.80\text{mV}, \qquad V_{Bmin}=-0.80\text{mV}
+    \label{eq:VBminmax}
+\end{equation}
 
 \subsection{Krets 2}
 
@@ -573,17 +574,17 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
     \node[circle, fill=black, inner sep = 1.2pt] (TR) at (5, 4) {};
 
 
-    \draw (A) to[V, a^=$V_1$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (F);
-    \draw (D) to[V, a^=$V_2$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (C);
+    \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$, i>^=$I_{R1}$] (F);
+    \draw (D) to[V, a^=$V_2$, l_=$12\text{V}$, i>^=$I_{R1}$] (C);
 
-    \draw (A) to[R, a^=$R_1$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R1}$] (B);
-    \draw (B) to[R, a^=$R_2$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R2}$] (C);
-    \draw (B) to[R, a^=$R_3$, l_=$1.5\,\text{k}\Omega$, i>^=$I_{R3}$] (E);
+    \draw (A) to[R, a^=$R_1$, l_=$1.5\text{k}\Omega$, i>^=$I_{R1}$] (B);
+    \draw (B) to[R, a^=$R_2$, l_=$1.5\text{k}\Omega$, i>^=$I_{R2}$] (C);
+    \draw (B) to[R, a^=$R_3$, l_=$1.5\text{k}\Omega$, i>^=$I_{R3}$] (E);
 
     \draw (D) to[short,*-*] (E);
     \draw (E) to[short,*-*] (F);
 
-    \draw (TL) to[R, a^=$R_4$, l_=$3.9\,\text{k}\Omega$, i>^=$I_{R4}$] (TR);
+    \draw (TL) to[R, a^=$R_4$, l_=$3.9\text{k}\Omega$, i>^=$I_{R4}$] (TR);
     \draw (A) to[short,*-*] (TL);
     \draw (TR) to[short,*-*] (C);
 
@@ -610,23 +611,23 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
 Løsning av likningene \ref{eq:loop1}, \ref{eq:loop2} og \ref{eq:loop3} gir:
 
 \[
-I_1 = 14.15~\text{mA}, \quad
-I_2 = 14.15~\text{mA}, \quad
-I_3 = 6.15~\text{mA}
+I_1 = 14.15\text{mA}, \quad
+I_2 = 14.15\text{mA}, \quad
+I_3 = 6.15\text{mA}
 \]
 
 Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}$ og $I_{R5}$ som følger:
 \[
-I_{R1} = I_1 - I_3 = 8.0~\text{mA}
+I_{R1} = I_1 - I_3 = 8.0\text{mA}
 \]
 \[
-I_{R2} = I_2 - I_3 = 8.0~\text{mA}
+I_{R2} = I_2 - I_3 = 8.0\text{mA}
 \]
 \[
-I_{R3} = I_1 - I_2 = 0~\text{A}
+I_{R3} = I_1 - I_2 = 0\text{A}
 \]
 \[
-I_{R4} = I_3 = 6.15~\text{mA}
+I_{R4} = I_3 = 6.15\text{mA}
 \]
 
 \paragraph{Spenningene i nodene A, B og C.} Spenningene kan uttrykkes på samme måte som i ligning \ref{eq:KCLiB} under \ref{paragraph:nodeanalyse}. Ettersom at grenen fra node A til C vil ikke utgjøre en forskjell på $V_A$ og $V_C$ sammenlignet med krets 1, vil spenningene i nodene A, B og C være de samme som i krets 1:
@@ -655,7 +656,7 @@ V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
     \node[circle, fill=black, inner sep = 1.2pt] (K) at (6,  2) {};
     \node[circle, fill=black, inner sep = 1.2pt] (L) at (6,  -2) {};
 
-    \draw (B) to[V, a^=$V_{in}$, l_=$12\,\text{V}$, i>^=$I_{R1}$] (A);
+    \draw (B) to[V, a^=$V_{in}$, l_=$12\text{V}$, i>^=$I_{R1}$] (A);
     \draw (K) to[short,*-*] (L);
     \draw (F) to[voltmeter=$V_{out}$] (G);
 
@@ -740,6 +741,6 @@ $V_{out}$ er nå en funksjon for $x_{pot}$ og vi kan plotte den.
 \noindent
 Grafens ekstremalpunkter i intervallet $x_{pot} \in [0, 100\text{k}\Omega]$ vil fortelle oss hva vi kan måle $V_{out}$ sin laveste og høyeste verdi vil være. Siden grafen oppfører seg som $V_{out}(s) < V_{out}(s + \Delta s)$ i intervallet $[0, 10^5]$ er den strengt økende og vi vil garantert finne dens laveste verdi i $x_{pot} = 0$ og høyest verdi i $x_{pot} = 10^5$. Dermed løser vi for det som:
 \begin{align}
-V_{out}(0) &= -12\text{ V} \\
-V_{out}(10^5) &= 6.05\text{ V}
+V_{out}(0) &= -12\text{V} \\
+V_{out}(10^5) &= 6.05\text{V}
 \end{align}

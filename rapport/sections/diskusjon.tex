@@ -1,2 +1,119 @@
 \section{Diskusjon}
-\dots
+
+\subsection{Metode og måleforutsetninger}
+I krets 1 benyttet vi både maskeanalyse og nodeanalyse for å beregne oss fram til ulike kjente verdier i et motstandsnettverk med uavhengige spenningskilder. Krets 2 er for det meste lik som krets 1, men her benyttet vi maskeanalyse for å sette opp maskelikningene. \\ Metoden for å utføre dette innebærer komponentene og instrumentene i figur \ref{tab:komponentliste} og \ref{tab:instrumentliste}. \\ De teoretiske verdiene som er presentert i teorien har blitt praktisk målt i laboratioriet for å 
+
+\subsection{Resultater knyttet til teori}
+
+\subsection{Feilkilder}
+Elektriske kretser er alltid forbundet med ulike feilkilder som kan påvirke måleresultatene. 
+Disse feilkildene er hovedårsaken til at praktiske målinger ofte avviker noe fra teoretiske verdier. 
+Selv når resultatene viser god overensstemmelse, vil mindre avvik kunne forklares gjennom slike faktorer. \\ I denne rapporten vurderes de mest relevante feilkildene for krets~1, krets~2 og krets~3. \\ De omfatter kontaktmotstand og dårlige koblinger, spenningskildens egenskaper, måleinstrumentets påvirkning, restspenninger i kretsen, samt generell måleusikkerhet og oppløsning. 
+
+\paragraph{Kontaktmotstand og dårlige koblinger.}
+\label{par:mo}
+I koblingsbrett, ledninger og komponentoverganger vil kontaktmotstand oppstå. Kontaktmotstanden er den elektriske motstanden som oppstår i grenseflaten mellom to ledere som er koblet sammen \cite{wikipediaOhmsLov}. Denne vil være variabel i hver hvert kontaktpunkt og vil garantere ubalanser i målinger overalt i kretsen. Dårlige kontaktpunkter vil gi økt motstand, og dette særlig i lavstrømsgrener. \\ 
+Ser vi på våre resultater i krets 1 (tabell \ref{tab:results1}) ser vi at de fleste målinger er innenfor $1\%$, men kontaktmotstand og dårlige koblinger kan forklare avvikket på $1.25\%$ i strøm $I_{R2}$.
+
+
+\paragraph{Spenningskilden.}
+I teoretiske utregninger antar vi at den interne motstanden i spenningskilden er lik null for simplisiteten av kretsen. Dette lager en reell feilkilde der det vil være en liten, ukjent indre motstand i spenningskildekomponenten. I tillegg vil spenningskilden ha små variasjoner i utgangsspenning over tid. Dette påvirker hvordan strømmen over motstand $R_1$ og $R_2$ vil variere og ikke være perfekt i forhold til den teoretiske utregningen. I tillegg kan vi trekke dette under nullspenningen i node B. Når de to uavhengige spenningskildene produserer inkonsise spenninger vil det påvirke spenningen i node B. I krets 3 kan vi se på formelen for $V_{out}$ (ligning \ref{eq:spenning_i_wheatstone}):
+
+\[
+V_{out} = V_{in} \left( \frac{R_3}{R_1+R_3} - \frac{R_4}{R_2+R_4} \right)
+\]
+\[
+V_{out} = V_{in} \cdot x 
+\]
+
+\noindent
+Her vil x representere det lineære forholdet mellom $V_{out}$ og $V_{in}$. Siden spenningskilden her er $V_{in}$ vil disse feilkildene påvirke $V_{out}$ proporsjonalt.
+
+
+\paragraph{Måleinstrumentet.}
+Multimeteret er ikke noe vi tar hensyn til i teoretiske utregninger siden det spiller ikke en rolle i en krets. Hensikten med et multimeter er å parallellkobles i to punkter av interesse, der multimeteret har en høy indre motstand for å ikke påvirke kretsen. Uansett, vil denne indre motstanden variere og oppløsningen på instrumentet vil forhindre de mest nøyaktige målingene. Dette kan ha innspill på målingene til en viss grad, og vi kan si at det er noe av grunnen til avvik i alle praktiske målinger.
+
+
+
+\paragraph{Restspenninger.}
+Restspenninger oppstår som grunn av kontaktmotstand og dårlige koblinger. Disse forskjellene i kontaktmotstander i koblingsbrettet og i hele laboratorieoppsettet vil lage små jordpotensialforskjeller. Dette vil i vårt tilfelle ha en direkte påvirkning på nullspenningen i node B, $V_B$, og det vil ha innvirkninger på hele kretsen i alle målinger.
+
+
+\paragraph{Måleusikkerhet og oppløsning.}
+
+\subsection{Drøfting for hver krets}
+\subsubsection{Krets 1}
+\subsubsection{Krets 2}
+\subsubsection{Krets 3}
+
+
+\subsection{Hovedfunn opp mot hensikt}
+\subsection{Mulige bruksområder}
+
+\subsection{Forbedringer og videre arbeid}
+
+
+
+\clearpage
+
+
+\section{Diskusjon fra chat}
+
+\subsection{Metode og måleforutsetninger}
+Kort om måleoppsett, instrumenter og antatt toleranse (motstander \(\pm 1\%\), spenningskilder, multimeter/oscilloskop oppløsning, input-impedans).
+Nevn kort hvordan dette påvirker forventede avvik (\(\sim 0.1\text{–}1\%\) typisk).
+
+\subsection{Sammenlikning mot teori og datablad}
+Oppsummer hovedbildet: «Målingene ligger generelt innenfor \(\pm 1\%\) av teori, i tråd med motstandstoleranse».
+Henvis til tabellene: Krets~\ref{tab:results1}–\ref{tab:results3}.
+Kommenter spesifikke punkt:
+\begin{itemize}
+  \item Krets 1: $V_B=28\,\text{mV}$ innenfor beregnet intervall \([-80,80]\,\text{mV}\) (ligning \ref{eq:VBminmax}).
+  \item Krets 2: Strømmer og node\-spenninger \(\leq 1\%\) avvik, konsistent med datablad (\(\pm 1\%\)).
+  \item Krets 3: $V_{12\mid\text{min}}$ nær teori; $V_{12\mid\text{maks}}$ med \(\sim 7\%\) avvik (se drøfting under).
+\end{itemize}
+
+\subsection{Kilder til avvik}
+Forklar kort \emph{hvorfor} avvik oppstår, uten å bli lang:
+\begin{itemize}
+  \item \textbf{Komponenttoleranser:} Motstander \(\pm 1\%\) flytter delingsforhold og maske-/node\-løsninger.
+  \item \textbf{Kontakt-/ledningmotstand:} Små overgangsmotstander på koblingsbrett gir \(\mathcal{O}(10\text{–}50\,\text{m}\Omega)\) ekstra.
+  \item \textbf{Kildevariasjon \& last:} Reell kilde har internmotstand; $V_{out}$ i Wheatstone påvirkes av måleinstrumentets inngangsimpedans.
+  \item \textbf{Instrumentusikkerhet:} Multimeter/oscilloskop (oppløsning, null-offset) gir \(\sim\)mV/mA-nivå feil.
+  \item \textbf{Frekvens/støy:} Rippel/jordsløyfer kan gi mV restsignal når teori sier 0\,V (f.eks. $V_{12}$ i Krets 3).
+\end{itemize}
+
+\subsection{Resonnement til hovedresultater}
+Knyt resultater til teorien du har utledet:
+\begin{itemize}
+  \item \textbf{Krets 1:} Nodeanalyse (ligning \ref{eq:KCLiB}) og maskeanalyse (\ref{eq:maskeKrets1l1}–\ref{eq:maskeKrets1l2}) gir $I_{R1}=I_{R2}=8\,\text{mA}$, $I_{R3}=0$ og $V_B\approx 0\,\text{V}$; målingene bekrefter dette innen toleranse.
+  \item \textbf{Krets 2:} Tilleggsmotstanden $R_4$ endrer maskestrømmene slik at $I_{R4}\approx 6.15\,\text{mA}$, mens $V_A,V_B,V_C$ forblir tilnærmet som i Krets 1—målingene matcher.
+  \item \textbf{Krets 3 (Wheatstone):} Observasjon av maksimal/minimal $V_{out}$ stemmer med uttrykket \ref{eq:spenning_i_wheatstone} og grafen i Fig.~\ref{fig:wheatstone-graph}; avvik ved $V_{12\mid\text{maks}}$ forklares med last/ikke-idealitet i potmeter og kilde.
+\end{itemize}
+
+\subsection{Spesifikk drøfting per krets}
+\subsubsection{Krets 1}
+Data innen \(\pm 1\%\). $V_B$ innen beregnet intervall. Hovedårsak til små avvik: toleranse og kontaktmotstand. Hovedfunn: teori (maske/node) beskriver kretsen godt.
+
+\subsubsection{Krets 2}
+Alle strøm-/spenningsavvik \(<1\%\). $I_{R4}$ følger forventet fra maskeligningene. Hovedfunn: ekstra gren påvirker fordeling av strømmene, men ikke nodenes nivå i dette oppsettet.
+
+\subsubsection{Krets 3 (Wheatstone-bro)}
+$V_{12}=6.5\,\text{mV}$ viser restsignal nær balanse (forventet). $V_{12\mid\text{min}}$ nær teori; $V_{12\mid\text{maks}}$ høyere målt (\(\sim 7\%\)): sannsynlige årsaker er wiper-motstand/endeeffekter i potmeter, kildeavvik og finite inngangsimpedans. Hovedfunn: følsomheten er størst nær balanse, som teorien tilsier.
+
+\subsection{Mulige bruksområder}
+Knyt til praksis—kort og konkret:
+\begin{itemize}
+  \item \textbf{Wheatstone-bro:} Presis måling av små motstandsvariasjoner (PTC/NTC, strain gauge, trykk, fukt).
+  \item \textbf{Maske-/nodeanalyse:} Dimensjonering og feilsøking i analoge nettverk, spenningsdelere, sensorkretser.
+  \item \textbf{Potensiometer som sensor:} Enkelt grensesnitt for posisjon/temperaturmodellering; vis følsomhet nær balanse.
+\end{itemize}
+
+\subsection{Forbedringer og videre arbeid}
+Kort liste som bygger bro til konklusjon:
+\begin{itemize}
+  \item Mål faktisk motstandsverdi for hver komponent og replott/rekalkuler forventet verdi.
+  \item Karakteriser kilde (lastregulering/indre \(R_s\)) og instrument (inngangsimpedans), og korriger $V_{out}$.
+  \item Mål kontaktmotstand/jordsløyfer (firetråds/kelvin hvor relevant).
+  \item Test flere potmeterposisjoner og sammenlikn med teoretisk kurve.
+\end{itemize}
