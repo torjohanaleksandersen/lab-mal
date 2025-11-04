@@ -1,14 +1,7 @@
 \section{Diskusjon}
 
 \subsection{Metode og måleforutsetninger}
-I krets 1 benyttet vi både maskeanalyse og nodeanalyse for å beregne oss fram til ulike kjente verdier i et motstandsnettverk med uavhengige spenningskilder. Krets 2 er for det meste lik som krets 1, men her benyttet vi maskeanalyse for å sette opp maskelikningene. \\ Metoden for å utføre dette innebærer komponentene og instrumentene i figur \ref{tab:komponentliste} og \ref{tab:instrumentliste}. \\ De teoretiske verdiene som er presentert i teorien har blitt praktisk målt i laboratioriet for å 
-
-\subsection{Resultater knyttet til teori}
-
-Dette delkapitlet sammenligner de målte verdiene fra laboratoriefosøket med de teoretiske beregnet utledet i kapittel \ref{sec:toeri}. Hensikten er å vurdere om resultatene følger de forventede sammenhengene Ohms lov, Kirchhoffs lover, og teorien for maske- og nodeanalyse samt Wheatstone-broen.
-
-
-
+I krets 1 benyttet vi både maskeanalyse og nodeanalyse for å beregne oss fram til ulike kjente verdier i et motstandsnettverk med uavhengige spenningskilder. Krets 2 er for det meste lik som krets 1, men her benyttet vi maskeanalyse for å sette opp maskelikningene. \\ Metoden for å utføre dette innebærer komponentene og instrumentene i figur \ref{tab:komponentliste} og \ref{tab:instrumentliste}. \\ De teoretiske verdiene som er presentert i teorien har blitt praktisk målt i laboratioriet for å bekrefte ulike ting ... . I denne rapporten vil vi kunne 
 
 
 
@@ -51,11 +44,53 @@ Multimeteret vil ha en måleusikkerhets pågrunn av dens oppløsning i hva den k
 
 \vspace{3em}
 \noindent
-Samlet sett forklarer disse feilkildene de små, men målbare forskjellene mellom teoretiske og eksperimentelle verdier. De største bidragene antas å være kontaktmotstand og måleusikkerhet, mens variasjon i spenningskildene og restspenninger har mindre, men merkbar innvirkning på nøyaktigheten.I 
+Samlet sett forklarer disse feilkildene de små, men målbare forskjellene mellom teoretiske og eksperimentelle verdier. De største bidragene antas å være kontaktmotstand og måleusikkerhet, mens variasjon i spenningskildene og restspenninger har mindre, men merkbar innvirkning på nøyaktigheten.
 
-\subsection{Drøfting for hver krets}
+
+
+
+
+
+
+\subsection{Resultater knyttet til teori}
+
+Dette delkapitlet sammenligner de målte verdiene fra laboratoriefosøket med de teoretiske beregnet utledet i kapittel \ref{sec:toeri}. Hensikten er å vurdere om resultatene følger de forventede sammenhengene Ohms lov, Kirchhoffs lover, og teorien for maske- og nodeanalyse samt Wheatstone-broen. Under vil det drøftes resultater opp mot teori for hver krets med feilkilder i fokus.
 \subsubsection{Krets 1}
+Metoden brukt her er maske- og node-analyse. Begge metodene gir $I_{R1} = I_{R2} = 8.00\text{mA}$ og $I_{R3} = 0\text{A}$. De målte resultatene varierer litt og gir alle litt avvik fra den teoretiske verdien. Strøm $I_{R2}$ avviker mest i hele tabell \ref{tab:results1} med over $1\%$, og resten under. Avviket i $I_{R1}$ kan forklares av flere feilkilder, som kontaktmotstand og dårlige koblinger. Andre feilkilder som spenningskilden vil også kunne spille inn her, da den kan produsere spenninger med feilmarginer. I tillegg kan vi se at i krets 1 er motstanden $R_1$ koblet i serie fra et nodepotensial $-12\text{V}$ i C til et nodepotensial $0\text{V}$ i B. Våre målinger for $V_C$ og $V_B$ samsvarer ikke med dette, og det vil være en grunn for at strømmen i $R_2$ har mye avvik. Vi kan trygt si at disse verdiene ligger innenfor en akseptabel avstand fra den teoretiske verdien. Tar vi for oss regnestykket for strømmen gjennom motstanden $R_2$ med de praktiske målingene får vi:
+\[
+I_{R2} = - \frac{V_C - V_B}{R_2}
+\]
+\[
+I_{R2} = - \frac{-12.10\text{V} - 0.028\text{V}}{1500\Omega}
+\]
+\[
+I_{R2} = 8.05\text{mA}
+\]
+\noindent
+Dette viser at spenningen i node C vår bidrar til avviket. $V_C$ har allerede et avvik på $0.83\%$ som er ganske stort, men akseptabelt siden det ligger innenfor $1\%$. Denne målingen er tatt i parallell mellom selve spenningskilden ($-12\text{V}$) og jording ($0\text{V}$) og vil gjenspeile hva spenningskilden er stilt inn til. Derfor vil disse ujevne målingene direkte stamme fra spenningskilden og restspenninger som feilkilder. Samtidig kan vi trekke $V_B$ under dette fordi den bygger på relasjonen mellom spenningen i nodene A og C og motstandene mellom, som er utledet og presentert i ligning \ref{eq:KCLiB} som vist under. 
+\[
+\frac{V_A-V_B}{R_1} = \frac{V_B}{R_3} + \frac{V_B - V_C}{R_2}
+\]
+\noindent
+Her ser vi tydelig at spenningen i node B vil avhenger av mange feilkilder som spiller inn på hvert enkeltelement i ligningen. I tillegg har hver motstand et feilmarginområde på $\pm 1\%$. Dette fører til et teoretisk usikkerhetsområde på $80\text{mV}$. Den praktiske målingen er $+ 28\text{mV}$. Målingen er innenfor godkjente rammer. \\ Vi trekke en konklusjon for målingene i krets 1 om at målingene ligger innenfor forsøkets satte godkjente grense på $1\%$ med noen unntak som kan forklares i grunnleggende kretsfeilkilder. 
+
 \subsubsection{Krets 2}
+Krets 2 bygger videre på krets 1, men med en ekstra gren via motstanden $R_4$ mellom node A og C. 
+Teoretiske beregninger ved maskeanalyse ga $I_{R4}=6.15\text{mA}$, mens målingen viste $6.21\text{mA}$, et avvik på $0.98\%$. 
+Dette er innenfor komponentenes toleranse på $\pm1\%$, og samsvarer derfor med teorien.
+
+Sammenlignes strømverdiene i $R_1$ og $R_2$ mellom krets 1 og 2 (tabell~\ref{tab:results1}\ref{tab:results2}), ser vi at de holder seg nær identiske, begge rundt $8.0\text{mA}$. 
+Dette viser at tilkoblingen av $R_4$ primært påvirker strømfordelingen mellom grenene A-C, uten å endre nodepotensialene $V_A$, $V_B$ og $V_C$ merkbart. Dette ser vi også i nodeanalyse for node B i teorien (ligning \ref{eq:KCLiB}):
+\[
+\frac{V_A-V_B}{R_1} = \frac{V_B}{R_3} + \frac{V_B - V_C}{R_2}
+\]
+\noindent
+Derfor kan vi isolere oss til selve grenen mellom node A og C og se på strømmen. Små avvik mellom beregnet og målt strøm kan igjen forklares av kontaktmotstand og interne spenningskildevariasjoner (se avsnitt~\ref{par:mo}).
+
+Spenningene i nodene viser også god overensstemmelse med teori. 
+Node B har en målt spenning på $0.028\text{V}$, som er godt innenfor beregnet område $\pm 80\text{mV}$ fra ligning \ref{eq:VBminmax}. 
+Avvikene mellom målt og teoretisk verdi er dermed konsistente med forventede feilkilder, og bekrefter at Kirchhoffs lover holder innenfor eksperimentell nøyaktighet.
+
 \subsubsection{Krets 3}
 
 
