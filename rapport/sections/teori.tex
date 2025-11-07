@@ -28,8 +28,8 @@ der $I$ er strømmen gjennom lederen, målt i ampere $[A]$, $V$ er potensialfors
 \centering
 \begin{circuitikz}[american voltages]
     \node[circle, draw=black, fill=none, thick, inner sep=2pt] (A) at (-1,2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (B) at (1,2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (C) at (1,-2) {};
+    \node[circle, fill=black, inner sep=0pt] (B) at (1,2) {};
+    \node[circle, fill=black, inner sep=0pt] (C) at (1,-2) {};
     \node[circle, draw=black, fill=none, thick, inner sep=2pt] (D) at (-1,-2) {};
 
     \node at (-1, 1.6) {$+$};
@@ -66,10 +66,10 @@ Figuren under viser et enkelt tilfelle av et forgreningspunkt. Her vil $i_2+i_3=
 \centering
 \begin{circuitikz}[american voltages]
     \node[circle, fill=black, inner sep=1.2pt] (A) at (0, 0) {};
-    \node[circle, fill=black, inner sep=1.2pt] (B) at (0, 3) {};
-    \node[circle, fill=black, inner sep=1.2pt] (C) at (3, 0) {};
-    \node[circle, fill=black, inner sep=1.2pt] (D) at (0, -3) {};
-    \node[circle, fill=black, inner sep=1.2pt] (E) at (-3, 0) {};
+    \node[circle, fill=black, inner sep=0pt] (B) at (0, 3) {};
+    \node[circle, fill=black, inner sep=0pt] (C) at (3, 0) {};
+    \node[circle, fill=black, inner sep=0pt] (D) at (0, -3) {};
+    \node[circle, fill=black, inner sep=0pt] (E) at (-3, 0) {};
 
 
     \draw (A) to[R=$R_1$, i^=$i_1$] (B);
@@ -96,10 +96,10 @@ I kretser vil dette i praksis bety at positive potensialforskjeller over batteri
 \begin{figure}[H]
 \centering
 \begin{circuitikz}[american voltages]
-    \node[circle, fill=black, inner sep=1.2pt] (A) at (-3, 2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (B) at (3, 2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (C) at (3, -2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (D) at (-3, -2) {};
+    \node[circle, fill=black, inner sep=0pt] (A) at (-3, 2) {};
+    \node[circle, fill=black, inner sep=0pt] (B) at (3, 2) {};
+    \node[circle, fill=black, inner sep=0pt] (C) at (3, -2) {};
+    \node[circle, fill=black, inner sep=0pt] (D) at (-3, -2) {};
 
 
     \draw (A) to[R=$R_1$] (B);
@@ -186,18 +186,18 @@ For å utføre maskeanalyse vil det være nødvendig å definere strømretninger
 \begin{circuitikz}[american voltages]
 
     % --- Noder ---
-    \node[circle, fill=black, inner sep=1.2pt] (A) at (-5,2) {};
+    \node[circle, fill=black, inner sep=0pt] (A) at (-5,2) {};
     \node[circle, fill=black, inner sep=1.2pt] (B) at (0,2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (C) at (5,2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (D) at (5,-2) {};
+    \node[circle, fill=black, inner sep=0pt] (C) at (5,2) {};
+    \node[circle, fill=black, inner sep=0pt] (D) at (5,-2) {};
     \node[circle, fill=black, inner sep=1.2pt] (E) at (0,-2) {};
-    \node[circle, fill=black, inner sep=1.2pt] (F) at (-5,-2) {};
+    \node[circle, fill=black, inner sep=0pt] (F) at (-5,-2) {};
 
 
     % --- Komponenter ---
-    \draw (A) to[R=$R_1$,*-] (B);
-    \draw (B) to[R=$R_2$,-*] (C);
-    \draw (B) to[R=$R_3$,*-*] (E);
+    \draw (A) to[R=$R_1$,-] (B);
+    \draw (B) to[R=$R_2$,-] (C);
+    \draw (B) to[R=$R_3$,-] (E);
 
     \node at (-3.4, 2.3) {$+$};
     \node at (-1.6, 2.3) {$-$};
@@ -208,11 +208,11 @@ For å utføre maskeanalyse vil det være nødvendig å definere strømretninger
     \node at (0.3, 0.9) {$+$};
     \node at (0.3, -0.9) {$-$};
 
-    \draw (A) to[V=$V_1$, label position=right, *-*] (F);
-    \draw (D) to[V=$V_2$, label position=left, *-*] (C);
+    \draw (A) to[V=$V_1$, label position=right, -] (F);
+    \draw (D) to[V=$V_2$, label position=left, -] (C);
 
-    \draw (F) to[short,*-*] (E);
-    \draw (E) to[short,*-*] (D);
+    \draw (F) to[short,-] (E);
+    \draw (E) to[short,-] (D);
 
 
     % --- Maske-strømmer (nå sentrert og runde) ---
@@ -258,10 +258,10 @@ En Wheatstone-bro er en elektrisk krets som er brukt for å måle en ukjent mots
     \node[circle, fill=black, inner sep = 1.2pt, label=right:$B$] (R) at ( 4, 0) {};  % right
     \node[circle, fill=black, inner sep = 1.2pt] (B) at (2, -2) {};  % bottom
 
-    \node[circle, fill=black, inner sep = 1.2pt] (a) at (-4, 3) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (b) at (2, 3) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (c) at (2, -3) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (d) at (-4, -3) {};
+    \node[circle, fill=black, inner sep = 0pt] (a) at (-4, 3) {};
+    \node[circle, fill=black, inner sep = 0pt] (b) at (2, 3) {};
+    \node[circle, fill=black, inner sep = 0pt] (c) at (2, -3) {};
+    \node[circle, fill=black, inner sep = 0pt] (d) at (-4, -3) {};
 
     % Sides (use R for resistors; use short for just an outline)
     \draw (T) to[R, l_=$R_1$] (L);
@@ -269,10 +269,10 @@ En Wheatstone-bro er en elektrisk krets som er brukt for å måle en ukjent mots
     \draw (B) to[R=$R_3$] (L);
     \draw (B) to[R, l_=$R_4$] (R);
 
-    \draw (a) to[short,*-*] (b);
-    \draw (b) to[short,*-*] (T);
-    \draw (B) to[short,*-*] (c);
-    \draw (c) to[short,*-*] (d);
+    \draw (a) to[short,-] (b);
+    \draw (b) to[short,-] (T);
+    \draw (B) to[short,-] (c);
+    \draw (c) to[short,-] (d);
     \draw (a) to[V=$V_{in}$] (d);
 
     \draw (L) to[voltmeter=$V_{out}$] (R);
@@ -346,15 +346,12 @@ Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningsp
 \centering
 \begin{circuitikz}[american voltages]
     \node [circle, fill=black, inner sep = 1.2pt, label=above:$V_{in}$] (A) at (-5, 0) {};
-    \node [circle, fill=black, inner sep = 1.2pt] (B) at (0, 0) {};
+    \node [circle, fill=black, inner sep = 1.2pt, label=above:$V_{node}$] (B) at (0, 0) {};
     \node [circle, fill=black, inner sep = 1.2pt] (C) at (5, 0) {};
-
-    \node [circle, fill=black, inner sep = 1.2pt, label=right:$V_{node}$] (D) at (0, -2) {};
 
     \draw (A) to[R=$R_L$] (B);
     \draw (B) to[R=$R_R$] (C);
 
-    \draw (B) to[short, -] (D);
     \node[ground] (GND) at (C) {};
 
 \end{circuitikz}
@@ -435,9 +432,9 @@ En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der 
     \node[circle, fill=black, inner sep = 1.2pt, label=above left:$A$] (A) at (-5, 2) {};
     \node[circle, fill=black, inner sep = 1.2pt, label=above:$B$] (B) at (0, 2) {};
     \node[circle, fill=black, inner sep = 1.2pt, label=above right:$C$] (C) at ( 5, 2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (F) at (-5, -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (F) at (-5, -2) {};
     \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (D) at (5, -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (D) at (5, -2) {};
 
     \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$, i>^=$I_{R1}$] (F);
     \draw (D) to[V, a^=$V_2$, l_=$12\text{V}$, i>^=$I_{R1}$] (C);
@@ -446,8 +443,8 @@ En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der 
     \draw (B) to[R, a^=$R_2$, l_=$1.5\text{k}\Omega$, i>^=$I_{R2}$] (C);
     \draw (B) to[R, a^=$R_3$, l_=$1.5\text{k}\Omega$, i>^=$I_{R3}$] (E);
 
-    \draw (D) to[short,*-*] (E);
-    \draw (E) to[short,*-*] (F);
+    \draw (D) to[short,-] (E);
+    \draw (E) to[short,-] (F);
 
     \draw (0, -2) node[ground]{}; 
 
@@ -560,12 +557,12 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
     \node[circle, fill=black, inner sep = 1.2pt, label=above left:$A$] (A) at (-5, 2) {};
     \node[circle, fill=black, inner sep = 1.2pt, label=above:$B$] (B) at (0, 2) {};
     \node[circle, fill=black, inner sep = 1.2pt, label=above right:$C$] (C) at ( 5, 2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (F) at (-5, -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (F) at (-5, -2) {};
     \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (D) at (5, -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (D) at (5, -2) {};
 
-    \node[circle, fill=black, inner sep = 1.2pt] (TL) at (-5, 4) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (TR) at (5, 4) {};
+    \node[circle, fill=black, inner sep = 0pt] (TL) at (-5, 4) {};
+    \node[circle, fill=black, inner sep = 0pt] (TR) at (5, 4) {};
 
 
     \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$] (F);
@@ -575,12 +572,12 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
     \draw (B) to[R, a^=$R_2$, l_=$1.5\text{k}\Omega$, i>^=$I_{R2}$] (C);
     \draw (B) to[R, a^=$R_3$, l_=$1.5\text{k}\Omega$, i>^=$I_{R3}$] (E);
 
-    \draw (D) to[short,*-*] (E);
-    \draw (E) to[short,*-*] (F);
+    \draw (D) to[short,-] (E);
+    \draw (E) to[short,-] (F);
 
     \draw (TL) to[R, a^=$R_4$, l_=$3.9\text{k}\Omega$, i>^=$I_{R4}$] (TR);
-    \draw (A) to[short,*-*] (TL);
-    \draw (TR) to[short,*-*] (C);
+    \draw (A) to[short,-] (TL);
+    \draw (TR) to[short,-] (C);
 
     \draw (0, -2) node[ground]{}; 
 
@@ -633,35 +630,35 @@ V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
 \centering
 \begin{circuitikz}[american voltages]
 
-    \node[circle, fill=black, inner sep = 1.2pt] (A) at (-6,  -2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (B) at (-6,  2) {};
+    \node[circle, fill=black, inner sep = 0pt] (A) at (-6,  -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (B) at (-6,  2) {};
     \node[circle, fill=black, inner sep = 1.2pt] (C) at (-5,  2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (D) at (-5,  3) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (E) at (-5,  1) {};
+    \node[circle, fill=black, inner sep = 0pt] (D) at (-5,  3) {};
+    \node[circle, fill=black, inner sep = 0pt] (E) at (-5,  1) {};
 
     \node[circle, fill=black, inner sep = 1.2pt, label=above:$1$] (F) at (0,  3) {};
     \node[circle, fill=black, inner sep = 1.2pt, label=below:$2$] (G) at (0,  1) {};
 
     \node[circle, fill=black, inner sep = 1.2pt] (H) at (5,  2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (I) at (5,  3) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (J) at (5,  1) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (K) at (6,  2) {};
-    \node[circle, fill=black, inner sep = 1.2pt] (L) at (6,  -2) {};
+    \node[circle, fill=black, inner sep = 0pt] (I) at (5,  3) {};
+    \node[circle, fill=black, inner sep = 0pt] (J) at (5,  1) {};
+    \node[circle, fill=black, inner sep = 0pt] (K) at (6,  2) {};
+    \node[circle, fill=black, inner sep = 0pt] (L) at (6,  -2) {};
 
     \draw (B) to[V, a^=$V_{in}$, l_=$12\text{V}$, i>^=$I_{R1}$] (A);
-    \draw (K) to[short,*-*] (L);
+    \draw (K) to[short,-] (L);
     \draw (F) to[voltmeter=$V_{out}$] (G);
 
     \draw (A) node[ground]{};
     \draw (L) node[ground]{};
-    \draw (B) to[short,*-*] (C);
-    \draw (H) to[short,*-*] (K);
+    \draw (B) to[short,-] (C);
+    \draw (H) to[short,-] (K);
 
-    \draw (C) to[short,*-*] (D);
-    \draw (C) to[short,*-*] (E);
+    \draw (C) to[short,-] (D);
+    \draw (C) to[short,-] (E);
 
-    \draw (H) to[short,*-*] (I);
-    \draw (H) to[short,*-*] (J);
+    \draw (H) to[short,-] (I);
+    \draw (H) to[short,-] (J);
 
     \draw (D) to[R=$R_5$] (F);
     \draw (E) to[R=$R_7$] (G);
@@ -722,7 +719,7 @@ V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\righ
     \addplot[black] {12 * ((x - 33000) / (x + 33000))};
   \end{axis}
 \end{tikzpicture}
-\caption{Grafet $V_{out}(x_{pot})$}
+\caption{Grafen til $V_{out}(x_{pot})$}
 \label{fig:wheatstone-graph}
 \end{figure}
 

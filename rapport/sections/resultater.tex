@@ -1,9 +1,8 @@
 \section{Gjennomføring med måleresultater}
 
 \subsection{Krets 1}
-
-
-\begin{table}[h!]
+\vspace{-1em}
+\begin{table}[H]
 \centering
 \caption{Sammenlikning av teoretiske og målte verdier av komponenter i krets 1}
 \vspace{1em}
@@ -26,7 +25,7 @@ Spenning $V_{C}$ & -12V & -12.10V & 0.83\% \\
 
 \subsubsection{Fremgangsmåte}
 \label{subsec:krets1_fremgangsmåte}
-For å koble opp krets 1 som vist i figur \ref{fig:krets1} må vi kunne koble positiv og negativ spenningskilder. $V_1$ kobles med negativ terminal til jording, og den positive terminalen til motstand $R_1$. $V_2$ derimot må kobles motsatt, der den positive terminalen kobles i jording, og negativ terminal til motstand $R_2$. $R_1$ og $R_2$ kobles sammen til $R_3$ som kobles til jording. Et viktig moment her er at spenningskilden er allerede koblet til jording og trenger ikke en slik kobling på koblingsbrettet, da kortslutter vi hele kretsen til jord.
+For å koble opp krets 1 som vist i figur \ref{fig:krets1} må vi kunne koble positiv og negativ spenningskilder. $V_1$ kobles med negativ terminal til jording, og den positive terminalen til motstand $R_1$. $V_2$ derimot må kobles motsatt, der den positive terminalen kobles i jording, og negativ terminal til motstand $R_2$. $R_1$ og $R_2$ kobles sammen til $R_3$ som kobles til jording. Et viktig moment her er at spenningskilden er allerede koblet til jording og trenger ikke en slik kobling på koblingsbrettet, ettersom det vil kortslutte hele kretsen.
 
 \subsubsection{Kommentar til resultater}
 De målte verdiene viser svært små avvik fra de teoretiske beregningene. Alle målinger utenom én ligger godt innenfor komponentenes toleranse på 1\%. $I_{R2}$ skiller seg ut. Avviket i $V_B$ er på 28mV, som ligger innenfor det teoretisk beregnede intervallet $[-80\text{mV}, 80\text{mV}]$ (Ligning \ref{eq:VBminmax}).
@@ -36,7 +35,8 @@ De målte verdiene viser svært små avvik fra de teoretiske beregningene. Alle 
 
 
 \subsection{Krets 2}
-\begin{table}[h!]
+\vspace{-1em}
+\begin{table}[H]
 \centering
 \caption{Sammenlikning av teoretiske og målte verdier av komponenter i krets 2}
 \vspace{1em}
@@ -66,7 +66,8 @@ Det svake avviket i $I_{R4}$ og $V_C$ kan skyldes små forskjeller i motstandsve
 
 
 \subsection{Krets 3}
-\begin{table}[h!]
+\vspace{-1em}
+\begin{table}[H]
 \centering
 \caption{Sammenlikning av teoretiske og målte verdier av komponenter i krets 3}
 \vspace{1em}
@@ -84,9 +85,7 @@ Spenning $V_{12} |_{maks}$ & 6.05V & 6.27V & 3.64\% \\
 
 
 \subsubsection{Fremgangsmåte}
-Denne kretsen kobles opp med en spenningsgenerator som har positiv terminal til Wheatstone-broen og negativ terminal til jording. Koblingsbrettet består deretter av $R_5$ i seriekobling med $R_6$, disse er i parallellkobling med $R_7$ som er i seriekobling med $R_8$. Denne parallellkoblingen kobles til jording også.
+Denne kretsen kobles opp med en spenningsgenerator som har positiv terminal til koblinsbrettet og negativ terminal til jording. Fra spenningskildekoblingen på brettet kobler vi til et nodepunkt hvor det skal etableres en parallellkobling av to grener. Den ene grenen har motstandene $R_5$ og $R_6$ i seriekobling, og den andre grenen har motstandene $R_7$ og $R_8$ i seriekobling. Noden der parallellkoblingen samles går til jording på brettet.
 
 \subsubsection{Kommentar til resultater}
-De målte minimums- og maksimumsspenningene viser små avvik fra de teoretiske verdiene, begge godt innenfor akseptabel feilmargin. 
-Avviket på rundt 7\% for $V_{12\,|\,\text{maks}}$ kan forklares med unøyaktigheter i generatorens spenningsnivå eller måleusikkerhet i oscilloskopet. 
-Nullspenningen på $V_{12}$ viser et lite restsignal (6.5\,mV), noe som er forventet på grunn av ujevnheter i brobalansen.
+Balansespenningen $V_{12}$ viser et akseptabelt avvik på $6.5\text{mV}$. I tillegg har minimumsverdien en god måling og samsvarer med teoretiske kalkulasjoner. Derimot har målingen $V_{12\,|\,\text{maks}}$ et uakseptabelt avvik på $3.64\%$, dette overskrider minimumstoleransemålingen på $\pm 1\%$.
