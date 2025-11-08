@@ -1,18 +1,18 @@
 \section{Diskusjon}
 
 \subsection{Metode og måleforutsetninger}
-I krets 1 benyttet vi både maskeanalyse og nodeanalyse for å beregne oss fram til ulike kjente verdier i et motstandsnettverk med uavhengige spenningskilder. Krets 2 er for det meste lik som krets 1, men her benyttet vi maskeanalyse som eneste metode for å sette opp maskelikningene. For å utføre dette i praksis benyttet vi oss av  instrumentene og komponentene i tabell \ref{tab:instrumentliste} og \ref{tab:komponentliste}. Nå vil de praktiske resultatene diskuteres i forhold til de teoretiske resultatene.
+I krets 1 benyttet vi både maskeanalyse og nodeanalyse for å beregne oss fram til ulike kjente verdier i et motstandsnettverk med uavhengige spenningskilder. Krets 2 er for det meste lik som krets 1, men her benyttet vi maskeanalyse som eneste metode for å sette opp maskelikningene. For å utføre dette i praksis benyttet vi oss av  instrumentene og komponentene i tabell~\ref{tab:instrumentliste} og~\ref{tab:komponentliste}. Nå vil de praktiske resultatene diskuteres i forhold til de teoretiske resultatene.
 
 \subsection{Feilkilder}
 Elektriske kretser er alltid forbundet med ulike feilkilder som kan påvirke måleresultatene. 
 Disse feilkildene er hovedårsaken til at praktiske målinger avviker fra teoretiske verdier. Selv når resultatene viser god overensstemmelse, vil de mindre avvikene kunne forklares gjennom slike feilkilder. I denne rapporten vurderes de mest relevante feilkildene for krets~1, krets~2 og krets~3. De omfatter kontaktmotstand og dårlige koblinger, spenningskildens egenskaper, måleinstrumentets påvirkning, restspenninger i kretsen, samt generell måleusikkerhet og oppløsning. 
 
 \paragraph{Kontaktmotstand og dårlige koblinger.}
-I koblingsbrett, ledninger og komponentoverganger vil kontaktmotstand oppstå. Kontaktmotstanden er den elektriske motstanden som oppstår i grenseflaten mellom to ledere som er koblet sammen~\cite{kontaktmotstandSNL}. Denne vil være variabel i hver hvert kontaktpunkt og vil garantere ubalanser i målinger i hele kretsen. Dårlige kontaktpunkter vil gi økt motstand, og dette særlig i lavstrømsgrener. Ser vi resultater i krets 1 (tabell~\ref{tab:results1}) ser vi at de fleste målinger er innenfor $1\%$, men kontaktmotstand og dårlige koblinger kan forklare avvikket på $1.25\%$ i strøm $I_{R2}$.
+I koblingsbrett, ledninger og komponentoverganger vil kontaktmotstand oppstå. Kontaktmotstanden er den elektriske motstanden som oppstår i grenseflaten mellom to ledere som er koblet sammen~\cite{kontaktmotstandSNL}. Denne vil være variabel i hvert kontaktpunkt og vil garantere ubalanser i målinger i hele kretsen. Dårlige kontaktpunkter vil gi økt motstand, og dette særlig i lavstrømsgrener. Ser vi resultater i krets 1 (tabell~\ref{tab:results1}) ser vi at de fleste målinger er innenfor $1\%$, men kontaktmotstand og dårlige koblinger kan forklare avviket på $1.25\%$ i strøm $I_{R2}$.
 
 
 \paragraph{Spenningskilden.}
-I teoretiske utregninger antar vi at den interne motstanden i spenningskilden er lik null for simplisiteten av kretsen. Dette lager en reell feilkilde der det vil være en liten, ukjent indre motstand i spenningskildekomponenten. I tillegg vil spenningskilden ha små variasjoner i utgangsspenning over tid. Dette påvirker hvordan strømmen over motstand $R_1$ og $R_2$ vil variere og ikke være perfekt i forhold til den teoretiske utregningen. I tillegg kan vi trekke dette under nullspenningen i node B. Når de to uavhengige spenningskildene produserer inkonsise spenninger vil det påvirke spenningen i node B. I krets 3 kan vi se på formelen for $V_{out}$ (ligning \ref{eq:spenning_i_wheatstone}):
+I teoretiske utregninger antar vi at den interne motstanden i spenningskilden er lik null for simplisiteten av kretsen. Dette lager en reell feilkilde der det vil være en liten, ukjent indre motstand i spenningskildekomponenten. I tillegg vil spenningskilden ha små variasjoner i utgangsspenning over tid. Dette påvirker hvordan strømmen over motstand $R_1$ og $R_2$ vil variere og ikke være perfekt i forhold til den teoretiske utregningen. I tillegg kan vi trekke dette under nullspenningen i node B. Når de to uavhengige spenningskildene produserer inkonsistente spenninger vil det påvirke spenningen i node B. I krets 3 kan vi se på formelen for $V_{out}$ (ligning~\ref{eq:spenning_i_wheatstone}):
 
 \[
 V_{out} = V_{in} \left( \frac{R_3}{R_1+R_3} - \frac{R_4}{R_2+R_4} \right)
@@ -33,11 +33,11 @@ Multimeteret er ikke noe vi tar hensyn til i teoretiske utregninger siden det sp
 
 
 \paragraph{Restspenninger.}
-Restspenninger oppstår pågrunn av kontaktmotstand og dårlige koblinger. Det vil praktisk si at kontaktmotstandene vil være variable og variere, og dermed lage små restspenningsforskjeller (jordpotensialforskjeller) overalt i kretsen. Dette vil påvirke nullspenningen i node B spesielt, men det vil også ha innvirkninger på alle tre kretser.
+Restspenninger oppstår på grunn av kontaktmotstand og dårlige koblinger. Det vil praktisk si at kontaktmotstandene vil være variable og variere, og dermed lage små restspenningsforskjeller (jordpotensialforskjeller) overalt i kretsen. Dette vil påvirke nullspenningen i node B spesielt, men det vil også ha innvirkninger på alle tre kretser.
 
 
 \paragraph{Måleusikkerhet og oppløsning.}
-Multimeteret vil ha en måleusikkerhet pågrunn av dens oppløsning i hva den kan måle. Dette bidrar til at små spenninger og strømmer har høy relativ feil. Et multimeter med nøyaktighet $\pm 0.5\%$ gir usikkerhet på rundt $\pm 0.06\text{V}$ ved $12\text{V}$ måling. I tillegg for millivolt-nivåer (som $V_B = 0.028\text{V}$), er usikkerheten svært stor. Dette vil påvirke resultatene våre og noe av avvikene kan forklares av denne feilkilden.
+Multimeteret vil ha en måleusikkerhet på grunn av dens oppløsning i hva den kan måle. Dette bidrar til at små spenninger og strømmer har høy relativ feil. Et multimeter med nøyaktighet $\pm 0.5\%$ gir usikkerhet på rundt $\pm 0.06\text{V}$ ved $12\text{V}$ måling. I tillegg for millivolt-nivåer (som $V_B = 0.028\text{V}$), er usikkerheten svært stor. Dette vil påvirke resultatene våre og noe av avvikene kan forklares av denne feilkilden.
 
 \vspace{1em}
 \noindent
@@ -51,10 +51,10 @@ Samlet sett forklarer disse feilkildene de små forskjellene mellom teoretiske o
 
 \subsection{Resultater knyttet til teori}
 
-Dette delkapitlet sammenligner de målte verdiene fra laboratoriefosøket med de teoretiske beregnet utledet i kapittel \ref{sec:toeri}. Hensikten er å vurdere om resultatene følger de forventede sammenhengene mellom Ohms lov, Kirchhoffs lover, og teorien for maske- og nodeanalyse samt Wheatstone-broen. Under vil det drøftes resultater opp mot teori for hver krets med feilkilder i fokus der avviket er større enn $\pm 1\%$.
+Dette delkapitlet sammenligner de målte verdiene fra laboratorieforsøket med de teoretiske beregnet utledet i kapittel~\ref{sec:toeri}. Hensikten er å vurdere om resultatene følger de forventede sammenhengene mellom Ohms lov, Kirchhoffs lover, og teorien for maske- og nodeanalyse samt Wheatstone-broen. Under vil det drøftes resultater opp mot teori for hver krets med feilkilder i fokus der avviket er større enn $\pm 1\%$.
 
 \subsubsection{Krets 1}
-Metoden for utregning brukt her er maske- og node-analyse. Begge metodene gir $I_{R1} = I_{R2} = 8.00\text{mA}$ og $I_{R3} = 0\text{A}$. De målte resultatene varierer litt og gir alle litt avvik fra den teoretiske verdien. Strøm $I_{R2}$ avviker mest i hele tabell \ref{tab:results1} med over $1\%$, og resten under. Avviket i $I_{R2}$ kan forklares av flere feilkilder, som kontaktmotstand og dårlige koblinger. Andre feilkilder som spenningskilden vil også kunne spille inn her, da den kan produsere spenninger med feilmarginer. I tillegg kan vi se at i krets 1 er motstanden $R_2$ koblet i serie fra et nodepotensial $-12\text{V}$ i node C til et nodepotensial $0\text{V}$ i node B. Våre målinger for $V_C$ og $V_B$ samsvarer ikke med dette, og det kan være en grunn for at strømmen i $R_2$ har mer avvik. Grunnet feilkilder kan vi trygt si at $I_{R2}$ ligger innenfor en akseptabel avstand fra den teoretiske verdien. Tar vi for oss regnestykket for strømmen gjennom motstanden $R_2$ med de praktiske målingene for spenninger får vi:
+Metoden for utregning brukt her er maske- og node-analyse. Begge metodene gir $I_{R1} = I_{R2} = 8.00\text{mA}$ og $I_{R3} = 0\text{A}$. De målte resultatene varierer litt og gir alle litt avvik fra den teoretiske verdien. Strøm $I_{R2}$ avviker mest i hele tabell~\ref{tab:results1} med over $1\%$, og resten under. Avviket i $I_{R2}$ kan forklares av flere feilkilder, som kontaktmotstand og dårlige koblinger. Andre feilkilder som spenningskilden vil også kunne spille inn her, da den kan produsere spenninger med feilmarginer. I tillegg kan vi se at i krets 1 er motstanden $R_2$ koblet i serie fra et nodepotensial $-12\text{V}$ i node C til et nodepotensial $0\text{V}$ i node B. Våre målinger for $V_C$ og $V_B$ samsvarer ikke med dette, og det kan være en grunn for at strømmen i $R_2$ har mer avvik. Grunnet feilkilder kan vi trygt si at $I_{R2}$ ligger innenfor en akseptabel avstand fra den teoretiske verdien. Tar vi for oss regnestykket for strømmen gjennom motstanden $R_2$ med de praktiske målingene for spenninger får vi:
 \[
 I_{R2} = - \frac{V_C - V_B}{R_2}
 \]
@@ -80,12 +80,12 @@ Teoretiske beregninger ved maskeanalyse ga $I_{R4}=6.15\text{mA}$, mens målinge
 Dette er innenfor komponentenes toleranse på $\pm1\%$, og samsvarer derfor med teorien.
 \\[1em]
 Vi kan sammenligne strømverdiene gjennom $R_1$ og $R_2$ mellom krets 1 og 2 (tabell~\ref{tab:results1} og~\ref{tab:results2}). Her ser vi at de holder seg nær identiske, begge rundt $8\text{mA}$. 
-Dette viser at tilkoblingen av $R_4$ primært påvirker strømfordelingen mellom grenene, uten å endre nodepotensialene $V_A$, $V_B$ og $V_C$ merkbart. Dette ser vi også i nodeanalyse for node B i teorien (ligning \ref{eq:KCLiB}):
+Dette viser at tilkoblingen av $R_4$ primært påvirker strømfordelingen mellom grenene, uten å endre nodepotensialene $V_A$, $V_B$ og $V_C$ merkbart. Dette ser vi også i nodeanalyse for node B i teorien (ligning~\ref{eq:KCLiB}):
 \[
 \frac{V_A-V_B}{R_1} = \frac{V_B}{R_3} + \frac{V_B - V_C}{R_2}
 \]
 \noindent
-For å forklare avviket i målingen for $I_{R4}$ kan vi isolere oss til selve grenen mellom node A og C og se på strømmen. Avviket kan forklares av kontaktmotstand og interne spenningskildevariasjoner. Spenningene i nodene viser også god overensstemmelse med teori. Node B har en målt spenning på $0.028\text{V}$, som er godt innenfor beregnet område $\pm 80\text{mV}$ fra ligning \ref{eq:VBminmax}. 
+For å forklare avviket i målingen for $I_{R4}$ kan vi isolere oss til selve grenen mellom node A og C og se på strømmen. Avviket kan forklares av kontaktmotstand og interne spenningskildevariasjoner. Spenningene i nodene viser også god overensstemmelse med teori. Node B har en målt spenning på $0.028\text{V}$, som er godt innenfor beregnet område $\pm 80\text{mV}$ fra ligning~\ref{eq:VBminmax}. 
 Avvikene mellom målt og teoretisk verdi er dermed konsistente med forventede feilkilder, og bekrefter at Kirchhoffs lover holder innenfor eksperimentell nøyaktighet.
 \\[1em]
 Samlet sett for krets 2 er målingene innenfor godkjente rammer. Kretsens resultater holder seg konsistent med resultatene fra krets 1. Et nært $1\%$ avvik i målingen $I_{R4}$ kan forklares av feilkilder.
@@ -96,20 +96,20 @@ I teorien utledet vi et uttrykk for spenningen i Wheatstone-broen (se ligning~\r
 V_{out}(x) = V_{in}\frac{x - R}{x + R}
 \]
 \noindent
-Denne gir maksimal følsomhet nær balansepunktet $\left( x \approx R \right)$. Ser vi på resultatene i tabell \ref{tab:results3} målte vi spenningen i broen til å være $6.5\text{mV}$, da den teoretiske verdien er $0\text{V}$ så er dette godt innafor. Komponentene som påvirker $V_{out}$ kan vi lese av ligning \ref{eq:spenning_i_wheatstone} til å være motstandene og spenningskilden i kretsen. Aktuelle feilkilder vil da være kontaktmotstand og dårlige koblinger i motstandene. Siden kretsen har fire slike motstander vil ubalansen påvirket av feilkildene bli større. I tillegg til at selve kildespenningen vil ha egne mulige feilkilder kan vi ikke lene oss på at $V_{in}$ i formelen er pålitelig heller. Restspenninger vil dannes i nodene i Wheatstone-broen og vil også påvirke målingen $V_{12}$. 
+Denne gir maksimal følsomhet nær balansepunktet $\left( x \approx R \right)$. Ser vi på resultatene i tabell~\ref{tab:results3} målte vi spenningen i broen til å være $6.5\text{mV}$, da den teoretiske verdien er $0\text{V}$ så er dette godt innafor. Komponentene som påvirker $V_{out}$ kan vi lese av ligning~\ref{eq:spenning_i_wheatstone} til å være motstandene og spenningskilden i kretsen. Aktuelle feilkilder vil da være kontaktmotstand og dårlige koblinger i motstandene. Siden kretsen har fire slike motstander vil ubalansen påvirket av feilkildene bli større. I tillegg til at selve kildespenningen vil ha egne mulige feilkilder kan vi ikke lene oss på at $V_{in}$ i formelen er pålitelig heller. Restspenninger vil dannes i nodene i Wheatstone-broen og vil også påvirke målingen $V_{12}$. 
 \\[1em]
-Videre kan vi se på målingen $V_{12}|_{min}$ i tabell \ref{tab:results3} og den har et avvik på $0.25\%$ som er godt innenfor. Siden dette er en spenningsmåling ser vi på de samme effektive feilkildene som i måling $V_{12}$. Videre mulige feilkilder vil tilknyttes potensiometerne i kretsen og vi må se på uttrykket for $V_{out}(x)$, der $x$ er motstanden i begge potensiometerne for å finne aktuelle feilkilder for potensiometerbroen. $V_{12}|_{min}$ innebærte å stille potensiometerne til $0$, potensiometerne er derfor ikke en veldig stor feilkilde utenom dens indre motstand. Målingen for $V_{12}|_{min}$ blir derfor nøyaktig. 
+Videre kan vi se på målingen $V_{12}|_{min}$ i tabell~\ref{tab:results3} og den har et avvik på $0.25\%$ som er godt innenfor. Siden dette er en spenningsmåling ser vi på de samme effektive feilkildene som i måling $V_{12}$. Videre mulige feilkilder vil tilknyttes potensiometerne i kretsen og vi må se på uttrykket for $V_{out}(x)$, der $x$ er motstanden i begge potensiometerne for å finne aktuelle feilkilder for potensiometerbroen. $V_{12}|_{min}$ innebærte å stille potensiometerne til $0$, potensiometerne er derfor ikke en veldig stor feilkilde utenom dens indre motstand. Målingen for $V_{12}|_{min}$ blir derfor nøyaktig. 
 \\[1em] 
 $V_{12}|_{maks}$ har et mye større og uakseptabelt avvik på $3.64\%$. Her må vi trekke fram de relevante feilkildene og teoretiske formlene for å besvare dette. Den teoretiske verdien baserer seg på at begge potensiometerne har maksimummotstand på nøyaktig $10^5\Omega$, men det er ikke sikkert og derfor vil det bli en aktuell feilkilde i forsøket vårt. Ligning~\ref{eq:pot_i_wheatstone} kan gi grunnlag for å forklare den mulige motstandsfeilkilden:
 \[
-V_{out}(x_{pot}) = V_{in} \cdot  \left(\frac{x_{pot} - R}{R + x_{pot}} \right)
+V_{out}(x) = V_{in} \cdot  \left(\frac{x - R}{x + R} \right)
 \]
 \noindent
-Hvis vi skal få $V_{out}$ til å nærme seg den praktiske målingen $6.27\text{V}$ må vi anta at potensiometerne har lik, men avvikende verdi. For å finne $x_{pot}$ tar vi for oss regnestykket:
+Hvis vi skal få $V_{out}$ til å nærme seg den praktiske målingen $6.27\text{V}$ må vi anta at potensiometerne har lik, men avvikende verdi. For å finne $x$ tar vi for oss regnestykket:
 \[
 \begin{aligned}
-  V_{out}(x_{pot}) &= 6.27\text{V} \\
-  x_{pot} &= 105\,219.89\Omega
+  V_{out}(x) &= 6.27\text{V} \\
+  x &\approx 105.22\text{k}\Omega
 \end{aligned}
 \]
 Dette presenterer at potensiometerne må begge ha en egentlig resistansefeilmargin på $+5.22\%$. Som er realistisk, men dette forutser at hele feilkilden ligger i akkurat dette momentet. Det er i tillegg til potensiometerresistansen de samme aktuelle feilkildene her som i måling av $V_{12}|_{min}$. Derfor kan vi påstå at målingen er realistisk, men med en uakseptabel avviksprosent grunnet ulike mulige feilkilder.
@@ -117,7 +117,7 @@ Dette presenterer at potensiometerne må begge ha en egentlig resistansefeilmarg
 
 \subsection{Hovedfunn opp mot hensikt}
 Hensikten med forsøket var å belyse prinsippene bak maske- og nodeanalyse, samt studere hvordan en Wheatstone-målebru kan brukes til å måle små motstandsvariasjoner. 
-Resultatene fra krets 1 og krets 2 viser at både maskeanalyse og nodeanalyse gir korrekte og konsistente teoretiske verdier for strømmer og nodepotensialer, der avvik kan forklares av mulig feilkilder. De fleste praktiske målingene ligger innenfor forventede avvik basert på komponenttoleranser og måleusikkerhet, og noen ligger utforbi. Målinger som ligger utforbi har vært argumentert for med feilkilder. Uansett, så bekrefter de praktiske måledataene at metodene beskriver kretsene på en presis måte.
+Resultatene fra krets 1 og krets 2 viser at både maskeanalyse og nodeanalyse gir korrekte og konsistente teoretiske verdier for strømmer og nodepotensialer, der avvik kan forklares av mulige feilkilder. De fleste praktiske målingene ligger innenfor forventede avvik basert på komponenttoleranser og måleusikkerhet, og noen ligger utenfor. Målinger som ligger utenfor har vært argumentert for med feilkilder. Uansett, så bekrefter de praktiske måledataene at metodene beskriver kretsene på en presis måte.
 \\[1em]
 For Wheatstone-broen i krets 3 ble det observert et restsignal nær balansepunktet, samt en tydelig endring i $V_{out}$ når forholdet mellom motstandene ble justert. Dette stemmer godt med den teoretiske modellen, og demonstrerer hvordan broen er spesielt følsom for små endringer i motstandsverdi rundt balansepunktet.
 \\[1em]
@@ -138,11 +138,11 @@ I slike systemer gir Wheatstone-broen høy følsomhet og god stabilitet, noe som
 
 
 \subsection{Forbedringer og videre arbeid}
-En naturlig forbedring av forsøket ville være å måle de faktiske resistansverdiene til alle motstandene som inngår i kretsene. Dette ville gjort det mulig å beregne nye teoretiske strøm- og spenningsverdier med reelle komponentdata, og dermed undersøke om avvikene hovedsakelig skyldes toleranser eller andre feilkilder. Dette kunne også gitt et bedre grunnlag for å forklare avviket i $V_{12}|_{maks}$ i krets 3, ved å analysere uttrykket for $V_{out}(x_{pot})$ med potensiometerets faktiske motstandsverdi.
+En naturlig forbedring av forsøket ville være å måle de faktiske resistansverdiene til alle motstandene som inngår i kretsene. Dette ville gjort det mulig å beregne nye teoretiske strøm- og spenningsverdier med reelle komponentdata, og dermed undersøke om avvikene hovedsakelig skyldes toleranser eller andre feilkilder. Dette kunne også gitt et bedre grunnlag for å forklare avviket i $V_{12}|_{maks}$ i krets 3, ved å analysere uttrykket for $V_{out}(x)$ med potensiometerets faktiske motstandsverdi.
 \\[1em]
 En annen forbedring ville være å karakterisere spenningskilden. I dette forsøket ble den interne motstanden og nøyaktigheten til kilden antatt, men ikke målt. Ved å måle kildeimpedans og faktisk utgangsspenning under last kunne mer presise simuleringer utføres, og avvikene i både krets 1 og 2 kunne vurderes mer nøyaktig.
 \\[1em]
-For Wheatstone-broen i krets 3 kunne forsøket vært utvidet ved å måle $V_{out}$ for flere posisjoner på potensiometeret og deretter plotte den praktiske kurven. En slik kurve kunne sammenlignes direkte med den teoretiske modellen vist i figur \ref{fig:wheatstone-graph}, og dette ville gitt innsikt i hvor følsom broen er nær balansepunktet og hvor avviket øker mot endeposisjonene.
+For Wheatstone-broen i krets 3 kunne forsøket vært utvidet ved å måle $V_{out}$ for flere posisjoner på potensiometeret og deretter plotte den praktiske kurven. En slik kurve kunne sammenlignes direkte med den teoretiske modellen vist i figur~\ref{fig:wheatstone-graph}, og dette ville gitt innsikt i hvor følsom broen er nær balansepunktet og hvor avviket øker mot endeposisjonene.
 
 \paragraph{Videre arbeid.}  
 Dette forsøket har introdusert og anvendt prinsippene for både node- og maskeanalyse, samt demonstrert funksjonen til en Wheatstone-bro. Et naturlig videre arbeid vil være å anvende disse analysemetodene på mer komplekse nettverk, for eksempel kretser som inneholder forsterkere eller flere koblingsnoder, der systematisk kretsanalyse blir enda viktigere.

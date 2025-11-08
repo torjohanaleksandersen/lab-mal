@@ -17,7 +17,7 @@ Det teoretiske grunnlaget i både maske- og nodeanalyse kommer fra teorien bak o
 \label{paragraph:OhmsLov}
 
 Ohms lov beskriver sammenhengen mellom spenning, strøm og motstand i en elektrisk krets. 
-Den sier at strømmen gjennom en metallisk leder med konstant temperatur er proporsjonal med den elektriske potensialforskjellen (spenningen) over lederen \cite{wikipediaOhmsLov}. 
+Den sier at strømmen gjennom en metallisk leder med konstant temperatur er proporsjonal med den elektriske potensialforskjellen (spenningen) over lederen~\cite{wikipediaOhmsLov}. 
 Den matematiske formuleringen av Ohms lov er:
 \[
 I = \frac{V}{R}, \qquad V = IR
@@ -51,11 +51,11 @@ der $I$ er strømmen gjennom lederen, målt i ampere $[A]$, $V$ er potensialfors
 
 
 \subsubsection{Kirchhoffs lover}
-Kirchhoffs lover er todelt og beskriver to forskjellige fenomen i kretsanalyse. Det er i hovedsak to regler for konservering av elektrisk ladning og elektrisk energi i strømkretser. Kirchhoffs lover er sentrale i kretselektronikk fordi det brukes for å finne forholdet mellom strøm og spenning. De to reglene refereres som \textbf{Kirchhoffs strømlov} og \textbf{Kirchhoffs spenningslov} \cite{wikipediaKirchhoffsLover}.
+Kirchhoffs lover er todelt og beskriver to forskjellige fenomen i kretsanalyse. Det er i hovedsak to regler for konservering av elektrisk ladning og elektrisk energi i strømkretser. Kirchhoffs lover er sentrale i kretselektronikk fordi det brukes for å finne forholdet mellom strøm og spenning. De to reglene refereres som \textbf{Kirchhoffs strømlov} og \textbf{Kirchhoffs spenningslov}~\cite{wikipediaKirchhoffsLover}.
 
 \paragraph{Kirchhoffs strømlov.}
 \label{paragraph:KCL}
-Denne loven beskriver prinsippet om konservering av elektrisk ladning i et forgreningspunkt som, "I et forgreningspunkt er summen av alle inngående strømmer lik summen av alle utgående strømmer" \,\cite{wikipediaKirchhoffsLover}. Matematisk kan det beskrives følgende:
+Denne loven beskriver prinsippet om konservering av elektrisk ladning i et forgreningspunkt som, "I et forgreningspunkt er summen av alle inngående strømmer lik summen av alle utgående strømmer" \,~\cite{wikipediaKirchhoffsLover}. Matematisk kan det beskrives følgende:
 \[
 \sum_{n=1}^{N}I_n=0, \qquad \text{forgrening med \textit{N} grener}
 \]
@@ -85,7 +85,7 @@ Figuren under viser et enkelt tilfelle av et forgreningspunkt. Her vil $i_2+i_3=
 
 \paragraph{Kirchhoffs spenningslov.}
 \label{paragraph:KVL}
-Denne loven beskriver konservering av elektrisk energi og sier at summen av alle elektriske potensialforskjeller (spenninger) i enhver lukket strømsløyfe er lik null \cite{wikipediaKirchhoffsLover}, og kan matematisk uttrykkes som:
+Denne loven beskriver konservering av elektrisk energi og sier at summen av alle elektriske potensialforskjeller (spenninger) i enhver lukket strømsløyfe er lik null~\cite{wikipediaKirchhoffsLover}, og kan matematisk uttrykkes som:
 \[
 \sum_{n=1}^{N} V_n = 0, \qquad \text{Sløyfe med \textit{N} forgreninger}
 \]
@@ -121,12 +121,12 @@ I kretser vil dette i praksis bety at positive potensialforskjeller over batteri
 
 
 
-\subsubsection{Nodealyse}
+\subsubsection{Nodeanalyse}
 
-Prinsippet for nodeanalyse bygger direkte på Kirchhoffs strømlov (kapittel \ref{paragraph:KCL}) og Ohms lov (kapittel \ref{paragraph:OhmsLov}). 
+Prinsippet for nodeanalyse bygger direkte på Kirchhoffs strømlov (kapittel~\ref{paragraph:KCL}) og Ohms lov (kapittel~\ref{paragraph:OhmsLov}). 
 Ved hjelp av disse lovene kombinert sammen kan man sette opp ligninger for ukjente spenninger i en krets. 
 Nodeanalyse baserer seg på at summen av alle strømmer som går \emph{inn} i et forgreningspunkt (node) er lik summen av alle strømmer som går \emph{ut} fra noden. 
-Vi har da to ligninger, og vi kan implementere dem sammen på forgreningspunktet i figuren \ref{fig:node_analysis}:
+Vi har da to ligninger, og vi kan implementere dem sammen på forgreningspunktet i figuren~\ref{fig:node_analysis}:
 \[
 \sum_{n=1}^{N} I_n = 0, \qquad I = \frac{V}{R}
 \]
@@ -154,14 +154,14 @@ Vi har da to ligninger, og vi kan implementere dem sammen på forgreningspunktet
 \end{figure}
 
 \noindent
-Figur \ref{fig:node_analysis} viser et forgreningspunkt med to inngående strømmer $I_1$ og $I_2$, og to utgående strømmer $I_3$ og $I_4$. Kirchhoffs strømlov gir formel:
+Figur~\ref{fig:node_analysis} viser et forgreningspunkt med to inngående strømmer $I_1$ og $I_2$, og to utgående strømmer $I_3$ og $I_4$. Kirchhoffs strømlov gir formel:
 \begin{equation}
     I_1 + I_2 = I_3 + I_4
     \label{eq:node_analysis_base}
 \end{equation}
 
 \noindent
-Vi kan utlede denne ligningen videre med å ta hensyn til spenningsforskjell over respektiv motstand. Spenningsforskjellen over en komponent kan uttrykes som forskjellen i spenning før og etter, $V_{ab} = V_a - V_b$. Det betyr at vi kan videreutforme ligning \ref{eq:node_analysis_base} som:
+Vi kan utlede denne ligningen videre med å ta hensyn til spenningsforskjell over respektiv motstand. Spenningsforskjellen over en komponent kan uttrykes som forskjellen i spenning før og etter, $V_{ab} = V_a - V_b$. Det betyr at vi kan videreutforme ligning~\ref{eq:node_analysis_base} som:
 \[
 \frac{V_1 - V_A}{R_1} + \frac{V_2 - V_A}{R_2} = \frac{V_A - V_3}{R_3} + \frac{V_A - V_4}{R_4} 
 \]
@@ -172,7 +172,7 @@ Denne fremgangsmåten kan utvides til flere noder for å etablere et lineært li
 
 
 \subsubsection{Maskeanalyse}
-Maskeanalyse bygger på prinsippene fra Kirchhoffs spenningslov (kapittel \ref{paragraph:KVL}) og Ohms lov (kapittel \ref{paragraph:OhmsLov}). Vi kan derfor summere spenningen over en sløyfe med \textit{N} sløyfer slik:
+Maskeanalyse bygger på prinsippene fra Kirchhoffs spenningslov (kapittel~\ref{paragraph:KVL}) og Ohms lov (kapittel~\ref{paragraph:OhmsLov}). Vi kan derfor summere spenningen over en sløyfe med \textit{N} sløyfer slik:
 
 \[
 \sum_{n=1}^{N} V_n = 0, \qquad \sum_{n=1}^{N} I_nR_n = 0
@@ -225,8 +225,7 @@ For å utføre maskeanalyse vil det være nødvendig å definere strømretninger
     \node at (2.5,0) {$I_2$};
 
 \end{circuitikz}
-\caption{To-sløyfe krets for maskeanalyse med maskestrømmene $I_1$ og $I_2$ (med klokka).}
-\label{fig:mesh_two_loops}
+\caption{To-sløyfe krets for maskeanalyse med maskestrømmene $I_1$ og $I_2$ (med klokka).}\label{fig:mesh_two_loops}
 \end{figure}
 
 \noindent
@@ -238,15 +237,15 @@ Ved å følge strømmene i sløyfene og addere hver spenning over hver komponent
 \end{aligned}
 \]
 \noindent
-For hvert spenningsledd i sløyfen vi summerer vil fortegnet bestemmes av inngående terminals fortegn. I tilfellet der to strømmsløyfer inngår i én resistanse, ($R_3$ i figur \ref{fig:mesh_two_loops}) vil man summere strømmene med henholdsvis fortegn i retning av terminalene pluss ($+$) til minus ($-$).
+For hvert spenningsledd i sløyfen vi summerer vil fortegnet bestemmes av inngående terminals fortegn. I tilfellet der to strømsløyfer inngår i én resistanse, ($R_3$ i figur~\ref{fig:mesh_two_loops}) vil man summere strømmene med henholdsvis fortegn i retning av terminalene pluss ($+$) til minus ($-$).
 
 
 
 
 \subsection{Wheatstone-bro}
-En Wheatstone-bro er en elektrisk krets som er brukt for å måle en ukjent motstand. Metoden er å balansere beinene i brokretsen. Wheatstone-bro kretsen gir ekstremt nøyaktige målinger for spenningsbalansen i kontrast til en spenningsdeler. Denne kretsen er oppfunnet av Samuel Hunter Christie i 1833, men var forbedret og kjentgjort av Charles Wheatstone i 1843 \cite{wikipediaWheatstoneBridge}.
+En Wheatstone-bro er en elektrisk krets som er brukt for å måle en ukjent motstand. Metoden er å balansere beinene i brokretsen. Wheatstone-bro kretsen gir ekstremt nøyaktige målinger for spenningsbalansen i kontrast til en spenningsdeler. Denne kretsen er oppfunnet av Samuel Hunter Christie i 1833, men var forbedret og kjentgjort av Charles Wheatstone i 1843~\cite{wikipediaWheatstoneBridge}.
 
-\paragraph{Kretsen. } Kretsen til en Wheatstone-bro består av 2 parallellkoblet par av resistorer i seriekobling. I tillegg er det en spenningskilde. Dermed får vi to noder ($A$ og $B$ i figur \ref{fig:wheatstone_bridge}) som vi kan måle spenningsforskjellen mellom, dette blir et mål for om broen er balansert eller ikke. 
+\paragraph{Kretsen. } Kretsen til en Wheatstone-bro består av 2 parallellkoblet par av resistorer i seriekobling. I tillegg er det en spenningskilde. Dermed får vi to noder ($A$ og $B$ i figur~\ref{fig:wheatstone_bridge}) som vi kan måle spenningsforskjellen mellom, dette blir et mål for om broen er balansert eller ikke. 
 
 \begin{figure}[H]
 \centering
@@ -283,7 +282,7 @@ En Wheatstone-bro er en elektrisk krets som er brukt for å måle en ukjent mots
 \end{figure}
 
 \paragraph{Utledning av formel ved balansert bro.}
-I tilfellet av en balansert bro kan vi bruke Kirchhoffs strømlov (kapittel \ref{paragraph:KCL}) og Kirchhoffs spenningslov (kapittel \ref{paragraph:KVL}) for å utlede en formel for $V_{out}$. Definerer vi en strøm $I_G$ som går fra $A$ til $B$ kan vi sette opp Kirchhoffs strømlov i node $A$ og $B$ henholdsvis (der $I_n$ går over $R_n$):
+I tilfellet av en balansert bro kan vi bruke Kirchhoffs strømlov (kapittel~\ref{paragraph:KCL}) og Kirchhoffs spenningslov (kapittel~\ref{paragraph:KVL}) for å utlede en formel for $V_{out}$. Definerer vi en strøm $I_G$ som går fra $A$ til $B$ kan vi sette opp Kirchhoffs strømlov i node $A$ og $B$ henholdsvis (der $I_n$ går over $R_n$):
 \[
 I_1 = I_G + I_3
 \]
@@ -291,7 +290,7 @@ I_1 = I_G + I_3
 I_2 + I_G = I_4
 \]
 \noindent
-Deretter, ved bruk av Kirchhoffs spenningslov kan vi sette opp to strømsløyfer med klokka. I øvre sløyfe har vi $I_T$ og i nedre har vi $I_B$.
+Deretter, ved bruk av Kirchhoffs spenningslov kan vi sette opp to strømsløyfer i retning med klokka. I øvre sløyfe har vi $I_T$ og i nedre har vi $I_B$.
 \[
 -R_1(I_T) + R_2(I_T) - R_G(I_B - I_T) = 0
 \]
@@ -305,7 +304,7 @@ Strømmen som går gjennom $R_G$ må være $0$ i en balansert bro. Som betyr at 
 \end{align}
 
 \noindent
-Ligning \ref{eq:l1_wheatstone} deles på \ref{eq:l2_wheatstone} og vi får:
+Ligning~\ref{eq:l1_wheatstone} deles på~\ref{eq:l2_wheatstone} og vi får:
 
 \[
 R_4 = \frac{R_3 \cdot I_B \cdot R_2 \cdot I_T}{I_B \cdot R_1 \cdot I_T}
@@ -318,7 +317,7 @@ R_4 = \frac{R_3 \cdot I_B \cdot R_2 \cdot I_T}{I_B \cdot R_1 \cdot I_T}
 
 \noindent
 \paragraph{Utledning av $V_{out}$ i balansert bro.}
-Teorien om spenningsdeling (kapittel \ref{subsec:spenningsdeling}) sier at spenningen i node A og B i figur \ref{fig:wheatstone_bridge} kan skrives slik:
+Teorien om spenningsdeling (kapittel~\ref{subsec:spenningsdeling}) sier at spenningen i node A og B i figur~\ref{fig:wheatstone_bridge} kan skrives slik:
 \[
 V_A = V_{in} \left( \frac{R_3}{R_1+R_3} \right)
 \]
@@ -335,7 +334,7 @@ V_{out} = V_{in} \left( \frac{R_3}{R_1+R_3} - \frac{R_4}{R_2+R_4} \right)
 \end{equation}
 
 \noindent
-Ligning \ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningspotensialforskjellen i en Wheatstone-bro.
+Ligning~\ref{eq:spenning_i_wheatstone} er den endelige utledningen av spenningspotensialforskjellen i en Wheatstone-bro.
 
 
 
@@ -363,62 +362,44 @@ En ideell spenningsdeler med to seriemotstander $R_{L}$ og $R_{R}$ tilført $V_{
 \[
 V_{node} = V_{in}\frac{R_R}{R_L+R_R}
 \]
-Denne formelen brukes gjentatte ganger i kretsanalyse og er grunnlaget for utledningen av Wheatstone-broen. En Wheatstone-bro er \emph{balansert} når ligning \ref{eq:balansertWheatstoneBro} er oppfylt og $V_{out} = 0$. For ubalanse fås den kjente uttrykksformen (ligning \ref{eq:spenning_i_wheatstone}):
+Denne formelen brukes gjentatte ganger i kretsanalyse og er grunnlaget for utledningen av Wheatstone-broen. En Wheatstone-bro er \emph{balansert} når ligning~\ref{eq:balansertWheatstoneBro} er oppfylt og $V_{out} = 0$. For ubalanse fås den kjente uttrykksformen (ligning~\ref{eq:spenning_i_wheatstone}):
 \[
 V_{out}=V_{in}\!\left(\frac{R_3}{R_1+R_3}-\frac{R_4}{R_2+R_4}\right)
 \]
 \paragraph{Følsomhet.}
 Små endringer i én gren gir størst utslag når broen er nær balanse (bratteste helning rundt $V_{out}=0$), derfor er Wheatstone-broen velegnet til presis måling av små motstandsvariasjoner.
 
-\subsubsection{Lineære potensiometre}
-\label{subsec:potmeter}
 
-Et lineært potensiometer har total motstand $R_P$ og en sleider (wiper) som deler motstanden i to: 
+
+\subsubsection{Lineære potensiometre}\label{subsec:potmeter}
+
+En lineær potensiometer har tre terminaler som funker som variabel motstand der wiper-posisjonen gir en tilnærmet lineær sammenheng mellom posisjon og resistans langs banen~\cite{vishay-pot,et-potmeter}. Ideelt modellerer vi potensiometeret med total motstand $R_P$ og en sleider (wiper) som deler motstanden i to:
 \[
 R_\uparrow = \alpha R_P,\qquad R_\downarrow=(1-\alpha)R_P,\qquad \alpha\in[0,1].
 \]
-Potensiometret kan brukes på to måter:
+\noindent
+Potensiometeret kan brukes på to måter:
 \begin{enumerate}
-  \item \textbf{Som spenningsdeler} (tre terminaler): noden ved sleideren får 
+  \item \textbf{Som spenningsdeler} (tre terminaler): noden ved sleideren får
   \(
-  V_\mathrm{wiper}=V_{in}\frac{R_\downarrow}{R_\uparrow+R_\downarrow}
-  =V_{in}(1-\alpha).
+  V_\mathrm{wiper}=V_{\mathrm{in}}\frac{R_\downarrow}{R_\uparrow+R_\downarrow}
+  =V_{\mathrm{in}}(1-\alpha),
   \)
-  \item \textbf{Som variabel motstand} (rheostat, to terminaler): effektiv motstand er en funksjon av $\alpha$, typisk
+  forutsatt at lasten har høy nok impedans til at den ikke påvirker delingen
+  nevneverdig~\cite{et-potmeter}.
+  \item \textbf{Som variabel motstand} (rheostat, to terminaler): effektiv
+  motstand er en funksjon av $\alpha$, typisk
   \(
   R(\alpha)=\alpha R_P
   \)
   (eller $(1-\alpha)R_P$ avhengig av hvilke terminaler som brukes).
 \end{enumerate}
 
-\vspace{1em}
-\noindent
-I denne rapporten modelleres potensiometre i Wheatstone-broen som \emph{variable motstander} $x$ i stedet for faste $R$ (rheostat-bruk). Setter vi for eksempel
-\[
-R_1=R,\quad R_2=x,\quad R_3=R,\quad R_4=x,
-\]
-får vi fra broformelen
-\[
-V_{out}(x)=V_{in}\!\left(\frac{R_3}{R_1+R_3}-\frac{R_4}{R_2+R_4}\right)
-=V_{in}\!\left(\frac{R}{R+R}-\frac{x}{x+R}\right)
-=V_{in}\frac{R-x}{R+x}.
-\]
-Skriver vi om med motsatt fortegn får vi varianten som brukes i plottet:
-\[
-V_{out}(x)=V_{in}\frac{x-R}{x+R}.
-\]
-
 \paragraph{Relevans for temperaturmåling.}
-En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der \emph{temperatur} styrer $x$. Når én gren er referanse og den andre er sensor, gir en liten endring i $x(T)$ en målbar $\Delta V_{out}$ rundt balansepunktet.
-
-\paragraph{Praktiske hensyn.}
-\begin{itemize}
-  \item \textbf{Linearitet}: lineær (B-taper) antas; logaritmisk (A-taper) er uegnet her.
-  \item \textbf{Endestopp og wiper-motstand}: gir små, men merkbare feil nær $\alpha\approx0$ og $1$.
-  \item \textbf{Lasting}: målte $V_{out}$ forutsetter høy inngangsimpedans på voltmeter/DAQ.
-\end{itemize}
-
-
+En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer
+der \emph{temperatur} styrer $x$. Når én gren er referanse og den andre er
+sensor, gir en liten endring i $x(T)$ en målbar $\Delta V_{\mathrm{out}}$ rundt
+balansepunktet~\cite{vishay-pot}.
 
 
 \subsection{Kretser}
@@ -462,7 +443,7 @@ En temperaturavhengig motstand (PTC/NTC) oppfører seg som et potensiometer der 
     -12\text{V} - R_3(I_1 - I_2) + R_2(I_2) = 0
     \label{eq:maskeKrets1l2}
 \end{equation}
-$R_1 = R_2 = R_3 = 1.5\text{k}\Omega$ settes inn og likningene løses for $I_1$ og $I_2$. Ligning \ref{eq:maskeKrets1l1} og \ref{eq:maskeKrets1l2} blir følgende:
+$R_1 = R_2 = R_3 = 1.5\text{k}\Omega$ settes inn og likningene løses for $I_1$ og $I_2$. Ligning~\ref{eq:maskeKrets1l1} og~\ref{eq:maskeKrets1l2} blir følgende:
 \[
     3000\Omega(I_1) - 1500\Omega(I_2) = 12\text{V}
 \]
@@ -484,7 +465,7 @@ Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B. Derfor blir 
     V_B = V_A - R_1 \cdot I_{R1} = 12\text{V} - 1500\Omega \cdot 8\text{mA} = 0\text{V}
 \]
 
-\paragraph{Nodeanalyse.} \label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchhoffs strømlov (KCL) for node B i kretsen. Ved å sette bunn som felles jording ($0\text{V}$) setter vi opp følgende likning:
+\paragraph{Nodeanalyse.}\label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchhoffs strømlov (KCL) for node B i kretsen. Ved å sette bunn som felles jording ($0\text{V}$) setter vi opp følgende likning:
 \[
     \frac{V_A-V_B}{R_1} = \frac{V_B-0\text{V}}{R_3} + \frac{V_B-V_C}{R_2}
 \]
@@ -582,8 +563,7 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
     \draw (0, -2) node[ground]{}; 
 
 \end{circuitikz}
-\caption{Krets 2}
-\label{fig:krets2}
+\caption{Krets 2}\label{fig:krets2}
 \end{figure}
 
 
@@ -600,7 +580,7 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
 \end{align}
 
 \noindent
-Løsning av likningene \ref{eq:loop1}, \ref{eq:loop2} og \ref{eq:loop3} gir:
+Løsning av likningene~\ref{eq:loop1},~\ref{eq:loop2} og~\ref{eq:loop3} gir:
 
 \[
 I_1 = 14.15\text{mA}, \quad
@@ -619,7 +599,7 @@ Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}
 \end{aligned}
 \]
 
-\paragraph{Spenningene i nodene A, B og C.} Spenningene kan uttrykkes på samme måte som i ligning \ref{eq:KCLiB} under \ref{paragraph:nodeanalyse}. Ettersom at grenen fra node A til C vil ikke utgjøre en forskjell på $V_A$ og $V_C$ sammenlignet med krets 1, vil spenningene i nodene A, B og C være de samme som i krets 1:
+\paragraph{Spenningene i nodene A, B og C.} Spenningene kan uttrykkes på samme måte som i ligning~\ref{eq:KCLiB} under~\ref{paragraph:nodeanalyse}. Ettersom at grenen fra node A til C vil ikke utgjøre en forskjell på $V_A$ og $V_C$ sammenlignet med krets 1, vil spenningene i nodene A, B og C være de samme som i krets 1:
 \[
 V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
 \]
@@ -675,7 +655,7 @@ V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
 
 
 
-Ligningen for spenningen i Wheatstone-broen er gitt som (ref. ligning \ref{eq:spenning_i_wheatstone}):
+Ligningen for spenningen i Wheatstone-broen er gitt som (ref. ligning~\ref{eq:spenning_i_wheatstone}):
 \begin{equation}
     V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right)
     \label{eq:wheatstoneKrets3}
@@ -687,46 +667,70 @@ Der $V_{out}$ er spenning mellom node 1 og 2 i broen. Når broen er balansert, v
 \[
 R_5 = R_6 = R_7 = R_8
 \]
-\paragraph{Lineære potensiometre.} For å oppnå høyest mulig potensialforskjell mellom node 1 og 2 gjennom måling av $V_{out}$, må potensiometerne plasseres slik at ligning \ref{eq:wheatstoneKrets3} kan få høyest mulig verdi. Plasserer vi begge potensiometerne før målenodene blir det fortsatt balanse (ligning \ref{eq:balansertWheatstoneBro} er oppfylt). Derfor må de plasseres diagonalt i broen for å oppnå størst $|V_{out}|$. Vi bytter derfor ut $R_5$ og $R_8$ med potensiometre. Ligningen kan nå modelleres som funksjonen $V_{out}(x_{pot})$:
+\paragraph{Lineære potensiometre.} For å oppnå høyest mulig potensialforskjell mellom node 1 og 2 gjennom måling av $V_{out}$, må potensiometerne plasseres slik at ligning~\ref{eq:wheatstoneKrets3} kan få høyest mulig verdi. Plasserer vi begge potensiometerne før målenodene blir det fortsatt balanse (ligning~\ref{eq:balansertWheatstoneBro} er oppfylt). Derfor må de plasseres diagonalt i broen for å oppnå størst $|V_{out}|$. Vi bytter derfor ut $R_5$ og $R_8$ med potensiometre. Ligningen kan nå modelleres som funksjonen $V_{out}(x)$.
 \[
-V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right), \qquad R_5 = R_8 = x_{pot} \text{  og  } R_6 = R_7 = R
+V_{out} = V_{in} \cdot  \left(\frac{R_8}{R_7 + R_8} - \frac{R_6}{R_5 + R_6}\right)
 \]
 \[
-    V_{out}(x_{pot}) = V_{in} \cdot  \left(\frac{x_{pot}}{R + x_{pot}} - \frac{R}{x_{pot} + R}\right)
+    V_{out}(x) = V_{in} \cdot  \left(\frac{x}{R + x} - \frac{R}{x + R}\right), \qquad R_5 = R_8 = x \text{  og  } R_6 = R_7 = R
 \]
 \begin{equation}
     \label{eq:pot_i_wheatstone}
-    V_{out}(x_{pot}) = V_{in} \cdot  \left(\frac{x_{pot} - R}{x_{pot} + R} \right)
+    V_{out}(x) = V_{in} \cdot  \left(\frac{x - R}{x + R} \right)
 \end{equation}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
   \begin{axis}[
-    xlabel=$x_{pot}$, 
-    ylabel=$V_{out}(x_{pot})$,
+    width=13cm,
     height=7cm,
-    width=15cm,
-    grid=both, 
-    thick, 
-    domain=0:120000, 
-    samples=100, 
-    ymin=-14, ymax = 10,
-    axis lines=middle,           % move axes to the center (nice visual)
-    axis line style={->},        % add arrows
-    enlargelimits,               % small margin
+    xlabel={$x\,[\text{k}\Omega]$},
+    ylabel={$V_{\text{out}}(x)\,[\text{V}]$},
+    xmin=-5, xmax=115,      % litt til venstre/høyre for 0–100 kΩ
+    ymin=-14, ymax=8,
+    xtick={0,33,100},
+    ytick={-12,-6,0,6},
+    grid=both,
+    grid style={thin, gray!30},  % lys grå grid
+    axis lines=middle,           % akser i midten
+    axis line style={ultra thick}, % “highlighta” akser
+    tick style={black},
+    enlargelimits=false,
   ]
-    \addplot[black] {12 * ((x - 33000) / (x + 33000))};
+    % Selve kurven (x er i kΩ -> gang med 1000 for ohm)
+    \addplot[
+      domain=-5:120,
+      samples=300,
+      very thick,
+      color=black,
+    ] {12 * ((x*1000 - 33000) / (x*1000 + 33000))};
+
+    % Punktet vi er interessert i: x = 100 kΩ
+    \addplot[
+      only marks,
+      mark=*,
+      mark size=2pt,
+      color=black,
+    ] coordinates {(100, 6.05)};
+
+    % Vertikal linje fra x-aksen opp til dette punktet
+    \addplot[
+      dashed,
+      color=gray,
+    ] coordinates {(100, 0) (100, 6.05)};
+
   \end{axis}
 \end{tikzpicture}
-\caption{Grafen til $V_{out}(x_{pot})$}
-\label{fig:wheatstone-graph}
+\caption{Grafen til $V_{\text{out}}(x)$ for $0 \le x \le 100\,\text{k}\Omega$}\label{fig:wheatstone-graph}
 \end{figure}
+
+
 
 \vspace{1em}
 \noindent
-Grafens ekstremalpunkter i intervallet $x_{pot} \in [0, 100\text{k}\Omega]$ vil fortelle oss hva $V_{out}$ sin laveste og høyeste mulig verdi er. Siden grafen oppfører seg som strengt økende, dvs. $V_{out}(s) < V_{out}(s + \Delta s)$ i intervallet $[0, 10^5]$, kan vi garantere at vi finner den laveste verdien i $x_{pot} = 0$ og høyest verdien i $x_{pot} = 10^5$. Dermed løser vi for det som:
+For å få en mer lesbar graf måler vi her $x$ i $\text{k}\Omega$. Grafens ekstremalpunkter i intervallet $x \in [0, 100\text{k}\Omega]$ vil fortelle oss hva $V_{out}$ sin laveste og høyeste mulig verdi er. Siden grafen oppfører seg som strengt økende, dvs. $V_{out}(s) < V_{out}(s + \Delta s)$ i intervallet $x \in [0, 100\text{k}\Omega]$, kan vi garantere at vi finner den laveste og høyeste verdien i kantene av definisjonsområde. Dermed løser vi for det som:
 \begin{align}
-V_{out}(0) &= -12\text{V} \\
-V_{out}(10^5) &= 6.05\text{V}
+V_{out}|_ {min} &= V_{out}(0) = -12\text{V} \\
+V_{out}|_ {maks} &= V_{out}(100\text{k}\Omega) = 6.05\text{V}
 \end{align}
