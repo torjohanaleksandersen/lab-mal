@@ -9,7 +9,7 @@ Videre skal øvelsen gi en praktisk forståelse av hvordan en Wheatstones måleb
 
 
 \subsection{Teoretisk grunnlag}
-Det teoretiske grunnlaget i både maske- og nodeanalyse kommer fra teorien bak ohms lov og Kirchhoffs lover.
+For å løse for ukjente verdier i elektriske kretser benytter vi maske- og node-analyse. Det teoretiske grunnlaget i disse metodene ligger i Ohms lov og Kirchhoffs lover.
 
 
 
@@ -417,8 +417,8 @@ balansepunktet~\cite{vishay-pot}.
     \node[circle, fill=black, inner sep = 1.2pt] (E) at (0, -2) {};
     \node[circle, fill=black, inner sep = 0pt] (D) at (5, -2) {};
 
-    \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$, i>^=$I_{R1}$] (F);
-    \draw (D) to[V, a^=$V_2$, l_=$12\text{V}$, i>^=$I_{R1}$] (C);
+    \draw (A) to[V, a^=$V_1$, l_=$12\text{V}$] (F);
+    \draw (D) to[V, a^=$V_2$, l_=$12\text{V}$] (C);
 
     \draw (A) to[R, a^=$R_1$, l_=$1.5\text{k}\Omega$, i>^=$I_{R1}$] (B);
     \draw (B) to[R, a^=$R_2$, l_=$1.5\text{k}\Omega$, i>^=$I_{R2}$] (C);
@@ -455,27 +455,30 @@ $R_1 = R_2 = R_3 = 1.5\text{k}\Omega$ settes inn og likningene løses for $I_1$ 
 \]
 Vi vet også at $I_1$ går i retning av $I_{R1}$ og disse er like, samme tilfelle for $I_2$ og $I_{R2}$. Strømmen gjennom $R_3$ vil ha $I_1$ i samme retning, men $I_2$ i motsatt. Dermed $I_{R3} = I_1 - I_2$. 
 \[
-    I_{R1} = I_{R2} = 8\text{mA} \qquad I_{R3} = I_1 - I_2 = 0\text{mA}
+    I_{R1} = I_{R2} = 8\text{mA} \qquad I_{R3} = I_1 - I_2 = 0\text{A}
 \]
 Spenningen for B uttrykkes ved å lese spenningsfallet fra A til B. Derfor blir spenningen i punkt A, B og C blir følgende: 
 \[
-    V_A = V_1 = 12\text{V}
+    V_A = V_1 = 12\text{V}, \qquad V_B = V_2 = -12\text{V}
 \]
 \[
     V_B = V_A - R_1 \cdot I_{R1} = 12\text{V} - 1500\Omega \cdot 8\text{mA} = 0\text{V}
 \]
 
-\paragraph{Nodeanalyse.}\label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchhoffs strømlov (KCL) for node B i kretsen. Ved å sette bunn som felles jording ($0\text{V}$) setter vi opp følgende likning:
+\paragraph{Nodeanalyse.}\label{paragraph:nodeanalyse} For å beregne $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av nodeanalyse trenger vi å sette opp Kirchhoffs strømlov (KCL) for node B i kretsen. Ved å sette kretsens bunnode som felles jording ($0\text{V}$) setter vi opp følgende likning:
 \[
     \frac{V_A-V_B}{R_1} = \frac{V_B-0\text{V}}{R_3} + \frac{V_B-V_C}{R_2}
 \]
 \begin{equation}
-    \frac{12\text{V}-V_B}{1500\Omega} = \frac{V_B}{1500\Omega} + \frac{V_B+12\text{V}}{3000\Omega}
+    \frac{12\text{V}-V_B}{1500\Omega} = \frac{V_B}{1500\Omega} + \frac{V_B+12\text{V}}{1500\Omega}
     \label{eq:KCLiB}
 \end{equation}
 \vspace{0.2em}
 \[
-    V_B = 0\text{V}
+    12\text{V} - V_B = V_B + V_B + 12\text{V}
+\]
+\[
+V_B = 0\text{V}
 \]
 Vi kan nå bruke $V_B$ for å løse $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av Ohms lov.
 \[
@@ -490,7 +493,7 @@ Vi kan nå bruke $V_B$ for å løse $I_{R1}$, $I_{R2}$ og $I_{R3}$ ved bruk av O
 \\[1em]
 Det må være like stor spenning fra begge sider av noden for forsikre at strømmen flyter gjennom $R_1$ og $R_2$ uten å gå gjennom $R_3$. For at spenning i node B skal være $0\text{V}$ må følgende forhold mellom resistorene være oppfylt:
 \[
-    R_1 = R_2, \qquad R_3 \; \epsilon \; \mathbb{R^+}
+    R_1 = R_2, \qquad R_3 > 0
 \]
 
 \paragraph{Toleranse i resistansene.} Motstandene i kretsen har en feilmargin på $\pm$1\%. En slik feilmargin vil påvirke spenningen i node B. For å finne det største og minste mulige spenningsnivået i node B må vi se på hvordan spenningen oppfører seg over motstandene. Størrelseområdene til motstandene i krets 1 er gitt:
@@ -505,17 +508,17 @@ Det må være like stor spenning fra begge sider av noden for forsikre at strøm
 Tilfelle med maksimum verdi i $V_B$ oppstår når spenningsfallet er minst over $R_1$ og størst over $R_2$. Dette er fordi spenningen over $R_1$ er positiv i forhold til node B, mens spenningen over $R_2$ er negativ i forhold til node B. Det vi også ønsker er å isolere noden mest mulig fra referansejording i bunn. Dermed konkluderer vi følgende:
 \[
 \begin{aligned}
-    V_{B,\text{max}} &: \quad 
-        R_1 = R_{1,\text{min}}, \;
-        R_2 = R_{2,\text{max}}, \;
-        R_3 = R_{3,\text{max}} \\[4pt]
-    V_{B,\text{min}} &: \quad 
-        R_1 = R_{1,\text{max}}, \;
-        R_2 = R_{2,\text{min}}, \;
-        R_3 = R_{3,\text{min}}
+    V_{Bmax} &: \quad 
+        R_1 = R_{1 min} \;
+        R_2 = R_{2 max} \;
+        R_3 = R_{3 max} \\[4pt]
+    V_{Bmin} &: \quad 
+        R_1 = R_{1 max} \;
+        R_2 = R_{2 min} \;
+        R_3 = R_{3 min}
 \end{aligned}
 \]
-Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som kan løses for $V_{Bmax}$ og $V_{Bmin}$. i praksis blir dette maksimum og minimum verdi vi kan se i målinger. Resultatet skal ligge mellom disse to verdiene.
+Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som kan løses for $V_{Bmax}$ og $V_{Bmin}$.Den praktiske målingen av $V_B$ skal ligge mellom disse to maks/min verdiene.
 \[
     \frac{V_A-V_{Bmax}}{1485\Omega} = \frac{V_{Bmax}-0\text{V}}{1515\Omega} + \frac{V_{Bmax}+12\text{V}}{1500\Omega}
 \]
@@ -570,7 +573,7 @@ Ved å sette inn verdiene i likningen for KCL i node B får vi to ligninger som 
 
 
 
-\paragraph{Maskeanalyse.} Vi definerer strømmene i de tre sløyfene som $I_1$ til venstre, $I_2$ til høyre og $I_3$ i toppen, alle med klokka. Ved bruk av KVL setter vi opp følgende likninger:
+\paragraph{Maskeanalyse.} Vi definerer strømmene i de tre sløyfene som $I_1$ til venstre, $I_2$ til høyre og $I_3$ i toppen, alle med retning av klokka. Ved bruk av KVL setter vi opp følgende likninger:
 
 
 \begin{align}
@@ -589,7 +592,7 @@ I_3 = 6.15\text{mA}
 \]
 
 \noindent
-Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}$ og $I_{R5}$ som følger:
+Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}$ og $I_{R5}$ som vist under:
 \[
 \begin{aligned}
     I_{R1} &= I_1 - I_3 = 8.0\text{mA} \\
@@ -601,7 +604,11 @@ Strømmene $I_1$, $I_2$ og $I_3$ definerer $I_{R1}$, $I_{R2}$, $I_{R3}$, $I_{R4}
 
 \paragraph{Spenningene i nodene A, B og C.} Spenningene kan uttrykkes på samme måte som i ligning~\ref{eq:KCLiB} under~\ref{paragraph:nodeanalyse}. Ettersom at grenen fra node A til C vil ikke utgjøre en forskjell på $V_A$ og $V_C$ sammenlignet med krets 1, vil spenningene i nodene A, B og C være de samme som i krets 1:
 \[
-V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
+\begin{aligned}
+V_A &= 12\text{V} \\
+V_B &= 0\text{V} \\
+V_C &= -12\text{V}
+\end{aligned}
 \]
 
 \subsubsection{Krets 3}
@@ -625,7 +632,7 @@ V_A = 12\text{V}, \quad V_B = 0\text{V}, \quad V_C = -12\text{V}
     \node[circle, fill=black, inner sep = 0pt] (K) at (6,  2) {};
     \node[circle, fill=black, inner sep = 0pt] (L) at (6,  -2) {};
 
-    \draw (B) to[V, a^=$V_{in}$, l_=$12\text{V}$, i>^=$I_{R1}$] (A);
+    \draw (B) to[V, a^=$V_{in}$, l_=$12\text{V}$] (A);
     \draw (K) to[short,-] (L);
     \draw (F) to[voltmeter=$V_{out}$] (G);
 
